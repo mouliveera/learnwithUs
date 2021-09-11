@@ -64,7 +64,8 @@ for `Deployments`.
 ***
 ---
 
-*Deployments: Deployments are intended to replace Replication controllers.
+#### Deployments: 
+- Deployments are intended to replace Replication controllers.
 - Rolling Updates helpful during the version upgrades.
 - Deployments provides capability to do upgrade underlying pods, seemlessly by rolling upgrade.
 ---
