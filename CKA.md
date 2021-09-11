@@ -1,3 +1,7 @@
+## Learn K8s
+Kubernetes is a open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
+
+
 #### Kube Control Manager:
 - Continuously looks for pod health status.
 - Monitors the state of the system and works towards the bring back to desired state.
@@ -15,19 +19,19 @@ You can install using kubeadm; It runs as a service on the GKE env.
 #### Kube Scheduler:
 - Responsible for which pod goes to which node.
 - It looks each pod and search for best node where it fits in as per resource requirements
-...
+---
 
 #### Kubelet:
 - It is like a captain on the ship.
 - It interacts with master in a regular interval.
 - It in the kubernetes worker node and checks state of the pod and containers then report it to kubeapi server in timely manner.
-...
+---
 
 #### Kubeproxy:
 - It take care of pod network in different namespaces
 - It is process runs on kubernetes nodes and forwards traffic.
 - It runs as a deamonset on each node.
-...
+---
 
 #### Pod:
 - Containers are encapsulated into a k8 object called PODS.
@@ -35,17 +39,19 @@ You can install using kubeadm; It runs as a service on the GKE env.
 - It is a single instance of an application.
 - Pod can have multiple containers of different kind. Containers shares the same network and storage space.
 
-livenessProbe: Indicates wether the container is running.
-readinessProbe: - Indicates whether the container is ready to respond to requests.
-                - If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod
-...
+**livenessProbe:** Indicates wether the container is running.
+
+**readinessProbe:** 
+- Indicates whether the container is ready to respond to requests.
+- If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod
+---
 
 #### ReplicaSets: [K8's Controller]
 - If app fails and pod gets destroyed, ReplicaSets helps.
 - It provides HighAvailability[HA], if existing one fails.
 - It helps to share the load. [It scales pods as needed]
 
-*** Replication Controller | ReplicaSets [Both works same]
+## Replication Controller | ReplicaSets [Both works same]
 Replication Controller: Original form of replications in k8s. It is being replaced by replicasets.
 - It provides the availability of pods and helps to scale up the number of pods.
 
@@ -56,12 +62,12 @@ The major difference between Replication Controller X ReplicaSets is that the `r
 Rolling update commands works with Replication controllers, but wont with ReplicaSets. Because ReplicaSets meant to be used as a backend \
 for `Deployments`.
 ***
-...
+---
 
 *Deployments: Deployments are intended to replace Replication controllers.
 - Rolling Updates helpful during the version upgrades.
 - Deployments provides capability to do upgrade underlying pods, seemlessly by rolling upgrade.
-...
+---
 
 #### Namespaces:
 - K8's supports multiple virtual clusters backed by the same physical cluster.
@@ -83,7 +89,7 @@ Namespaces and DNS:
 ```bash
 # kubectl get namespaces
 ```
-...
+---
 
 #### Services:
 - Service is a logical set of Pods.
@@ -99,7 +105,7 @@ Services Types:
   - Service can be accessable from other cluster using the ClusterIP or Service name
 
 - Loadbalancer #Distrubutes the load between the pods under the service.
-...
+---
 
 #### Imperative and Declarative:
 ## Imperative Approach:
@@ -123,12 +129,12 @@ Services Types:
    kubectl apply -f nginx.yaml
    kubectl apply -f /path/to/config-files
 
-...
+---
 #### Scheduling a pod on a Node
 - We can create a Pod with manual scheduling.
   Use `# nodeName:` entry in pod manifest file to specify in which Node the Pod has to be deployed.
 
-...
+---
 
 ## K8's objects use different labels and selectors to group and select the different resources.
 ## Annotations: They are used to record the details for informative purpose.
