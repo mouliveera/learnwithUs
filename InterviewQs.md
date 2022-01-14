@@ -147,3 +147,43 @@ We store key files in .ssh folder, which located in our home directory[$HOME]
 ```
 - We can use --check option to run dryRun in Ansible PlayBook
 ```
+5. What is the difference between ansible-adhoc and ansible-playbooks
+```
+- ansible-adhoc are the ansible commands that we use for one time activity against inventory hosts.
+- ansible-playbook is a set of tasks that we include in main.yml file in tasks directory.
+```
+6. Ho do you create a ansble-plays and what are the default folders and files included.
+```aidl
+- We can use "ansible-galaxy" commands to create ansible-play directories.
+  Commands: "ansible-galaxy init FOLDERNAME"
+-------------------------------------------------------
+- Default folders and files
+├── README.md
+├── defaults
+├── files
+├── handlers
+├── meta
+├── tasks
+├── templates
+└── vars
+
+```
+7. What is group_vars and host_vars
+```
+- Group_vars: Variable set that we use for group of instances that we list in host inventory file.
+- Host_vars: Variable set that we use for individual instances that we list in host inventory file.
+```
+6. What is inventory file in ANSIBLE, where it is located.
+```aidl
+- Inventory file keeps all host[Server] related information.
+- It located in under hosts directory which is in ansible default directory.
+- It is an yml file.
+```
+7. How to check all the servers in inventory file are accesible or reachable.
+```
+ansbile-playbook -m ping all -i INVENTORY-FILE
+```
+8. How do you check the ansible version
+```aidl
+ansible -v
+```
