@@ -187,3 +187,571 @@ ansbile-playbook -m ping all -i INVENTORY-FILE
 ```aidl
 ansible -v
 ```
+
+9. How do you run ansible-playbook against a hostgroup
+```aidl
+ansible-playbook -i hosts/INVENTORY-FILE -l HOSTGROUP PLAYBOOK.yaml
+```
+
+10. How do you check the ansible playbook errors.
+```aidl
+- We can run ansible playbook in debug mode[-vvv] to capture the all the errors and tasks included in the playbook.
+
+Commands:
+ansible-playbook -i hosts/INVENTORY-FILE -l HOSTGROUP PLAYBOOK.yaml -vvv
+```
+
+## GITHub
+1. What is Git
+```aidl
+- Git is a Distributed Version Control system. 
+- It lets you track changes made to a file and allows you to revert back to any particular change that you want to.
+```
+2. What is the difference between Git and Github and GitLab?
+```
+Git:
+- Git is a version control system of distributed nature that is used to track changes in source code during software development. 
+- The main objectives of Git are speed, data integrity, and support for distributed workflows.
+-------------------
+GitHub:
+- Used to track yours changes in source code
+- GitHub is a Git repository hosting service. 
+- GitHub provides a Web-based graphical interface.
+- It is managed by GitHub Cloud providers.
+-------------------
+GitLab:
+- We can observe some similar features as Git and GitHub. But it is a hosted service.
+- We can host GitLab as package and we can manage on our own.
+```
+
+3. What is the BRANCHING Strategy that you followed
+```aidl
+- We followed feature branch strategy.
+
+- Clone remote master branch to local.
+---
+git clone REPOSITORY-NAME
+---
+
+- Create a feature or private branch in our local.
+---
+git checkout -b BRANCH-NAME
+---
+
+- Make necessary changes to respective files.
+
+- Add all your changes to your local branch.
+---
+git add -A
+---
+
+- Give a commit message to your changes.
+---
+git commit -m "TICKET-NUMBER: Commit Message"
+---
+
+- Push your changes to repository.
+---
+git push origin BRANCH-NAME
+---
+```
+
+4. What is a commit message
+```aidl
+Git commit is used to give a message to your changes that you made in your private branch.
+
+Commands:
+"git commit -m"
+```
+5. How to add files to PRIVATE BRANCH.
+```aidl
+- We can use "git add" commands to add files to your PRIVATE BRANCH.
+- "git add -A": To add all modified/new/deleted files to your PRIVATE BRANCH.
+```
+6. How can you fix a broken commit
+```
+- In order to fix any broken commit, use the command “git commit --amend”. 
+- When you run this command, you can fix the broken commit message in the editor.
+```
+
+7. What is a repository in Git
+```
+- Repository in Git is a place where Git stores all the files. 
+- Git can store the files either on the local repository or on the remote repository.
+- It helps us to track and maintain record against all files to store.
+```
+
+8. How can you create a repository in Git
+```aidl
+- You can create a repo manually from GitHub console.
+- You can also use "git init" commands to create a repo
+```
+
+9. What is Git rebase
+```aidl
+- It helps us to rebase remote branch changes to local branch.
+```
+
+10. Git pull
+``` 
+- To pull the remote branch recent changes to local, we use "git pull"
+- Before creating a private branch, it is advised to RUN "git pull", then create a branch to avoid merge conflicts.
+```
+
+11. How do we check the history of a file when/who made the changes.
+```aidl
+- We can use "git log" commands to check the history.
+```
+## BASH
+1. Why we use BASH scripting
+```aidl
+- BASH Shell is a command-line interpreter between user and kernel.
+- We use BASH to automate linux/unix/ubuntu repetative tasks.
+```
+
+2. What are the file permissions we need to give for a SHELL scripting file.
+```aidl
+- We need to give execute permissions to a shell script file.
+
+Commands:
+chmod +x SCRIPT-FILE.sh
+```
+
+3. What is a variable in SHELL
+```aidl
+- Variables are integral parts of Shell scripts.
+- Variables usually store data either in the form of characters or numbers.
+
+Commands:
+- Assign a variable
+---
+NAME="KUMAR"
+---
+
+- Print variable
+---
+echo $NAME
+---
+```
+4. How do we execute a shell script.
+```
+sh SHELL-SCRIPT-FILE.sh
+
+(or)
+
+./SHELL-SCRIPT-FILE.sh
+
+(or)
+
+#For Step by step execution process
+sh -x SHELL-SCRIPT-FILE.sh 
+```
+
+5. How do you automate a SHELL script at perticular time
+```aidl
+- We can create a SHELL script and adjust it in cronJobs.
+- CronJobs helps to repeat a task at give interval of time.
+
+Setting up cron: file /etc/cron.d
+
+minute <TAB> hour <TAB> "day of month" <TAB> month <TAB> "day of week"
+```
+6. How to run a script in the background?
+```
+Commands:
+script-filename.sh &
+```
+
+7. How to check exit code of previously ran commands
+```aidl
+- We can find the status of commands, whether it was sucessfull or failure using exit codes.
+
+Commands:
+echo $?
+
+- If the exit code returns "0" means, previous commands ran sucessfully.
+- If the exist code returns other than "0" means, there was some issues with previously ran commands.
+```
+
+8. How to list last 30day old files in file system.
+```aidl
+- We can use find commands to search for files.
+
+Commands:
+find . -mtime +30 -print
+
+(or)
+
+find DIRECTORY -mtime +30
+```
+
+9. Remove a file or directory
+```aidl
+- use "rm" commands to remove file.
+- use "rm -rf" commands to remove a directory.
+```
+
+10. Where we check the logs of file system.
+```
+- In linux/Ubuntu/Unix OS sytems, we can find the logs in /var/log/
+```
+
+11. How do you check disk space on Ubuntu machine
+```aidl
+- Use "df -h" commands to check the disk free.
+- Use "du -sh *" commands to check the usage.
+```
+
+12. How will you debug a shell script?
+``` 
+We can turn on or off debugging options in the shell:
+
+Add below options at the starting of the script.
+
+Set -x: This displays commands and their arguments as they are being executed.
+Set -v: It displays shell input lines in real-time as they are read.
+```
+13. Wht is sed command and awk command?
+```aidl
+SED: stream editor
+- It is used for editing a file without using an editor.
+- We can use "sed" commands to find and replace a word in a file.
+```
+---
+```aidl
+AWK:
+- We use AWK commnds to cut and print output based on positions.
+
+Commands:
+# To print complete data in a file.
+cat filename | awk '{print $0}' 
+
+# We can use few options to cut and print output based on positions.
+# It prints the first field in file
+cat filename | awk '{print $1}' 
+```
+
+14. How to login to a server using SSH
+```aidl
+ssh server
+
+(or)
+
+ssh IPADDRESS
+```
+
+## Jenkins
+1. What is Jenkins and why is it used?
+```
+- Jenkins is a continuous integration (CI) tool for real-time testing and reporting of smaller builds in a large chunk of code. 
+- It is written in Java. It is used because it helps developers and testers work in tandem to detect and close defects early in the software development lifecycle and encourage automated testing of builds.
+```
+
+2. What are the advantages of using Jenkins?
+```aidl
+- Provides great collaboration between development and operations teams.
+- We can automate integrations.
+- We can track users who deployed the latest changes.
+- Code errors can be detected as early as possible.
+```
+3. What is Continuous Integration, Continuous Delivery, and Continuous Deployment?
+```
+Continuous Integration:
+- It is a DevOps software development practice that permits developers to combine/merge the changes to their code in the central repository to run automated builds and tests.
+
+Continuous Delivery:
+- It refers to the building, testing, and delivering improvements to the software code. 
+- The most critical part of the CD is that the code is always in a deployable state.
+
+Continuous Deployment:
+- It is the ultimate stage in the DevOps pipeline. 
+- It  refers to automatic release of any developer changes from the repository to the production stage.
+```
+
+4. Any idea on Jenkins pipeline?
+```aidl
+- The pipeline represents the continuous delivery and continuous integration of all the jobs in the SDLC and DevOps life-cycle.
+```
+5. Different pipelines in Jenkins?
+```aidl
+- CI/CD pipeline 
+- Scripted pipelineDeclarative pipeline
+```
+6. What is DSL Jenkins?
+```
+- DSL stands for Domain Specific Language. 
+- Jenkins job DSL is a plugin that allows us to define jobs in the programmatic form with minimal effort.
+```
+
+7. How do you restart jenkins
+```aidl
+- If it is installed on unix based system
+Commands:
+service jenkins restart
+
+- From web interface
+https://JenkinsURL/restart
+```
+
+8. Use of the JENKINS_HOME directory?
+```
+- JENKINS_HOME directory is the place where all the settings, logs, and configurations are stored. 
+- It stores all this information in XML files.
+```
+
+9. How to create a jenkins jobs
+```aidl
+- Open the Jenkins dashboard and create a new item by clicking on 'new item'
+- Enter the project name and, from the options, select 'Freestyle project'
+- Click on OK
+```
+
+10. Defile parameters in Jenkins
+```aidl
+In Jenkins, a build can take many input parameters to execute. 
+
+- To define parameters for the job, select the "this project is parameterized" box.
+- The drop down "Add Parameter" is enabled with the parameter types list. Any number of parameters may be added in the list.
+- There are several parameter types provided in the list. 
+```
+
+
+## Kubernetes
+1. What's Kubernetes?
+```aidl
+- Kubernetes is an open-source container orchestration tool or system that is used to automate tasks such as the management, monitoring, scaling, and deployment of containerized applications.
+- It is also known as K8s
+- Orchestration refers to the integration of multiple services that allows them to communicate to accomplish a single goal. 
+```
+2. Differences between the Docker Swarm and Kubernetes?
+```aidl
+- Docker Swarm can’t do auto-scaling (as can Kubernetes).
+- Docker scaling is five times faster than Kubernetes 
+- Docker can deploy rolling updates but can’t deploy automatic rollbacks
+- Kubernetes can deploy rolling updates as well as automatic rollbacks
+```
+3. What is a node in Kubernetes?
+```
+- A node is the smallest fundamental unit of computing hardware. 
+- It represents a single machine in a cluster, which could be a physical machine in a data center or a virtual machine from a cloud provider.
+```
+4.What is a pod in Kubernetes?
+```aidl
+- Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
+- A Pod is a group of one or more containers.
+```
+
+5. What is a Namespace in Kubernetes?
+```aidl
+- Namespace is used to devide the cluster into virtual clusters.
+- namespaces provides a mechanism for isolating groups of resources within a single cluster
+```
+6. How do you check pods running status in kubernetes cluster
+```aidl
+- You can use "kubectl get pods --contect CONTEXT-NAME -n NAMESPACE-NAME" to list out al pods in a cluster with specific namespace.
+```
+
+6. What are Daemon sets?
+```
+- A Daemon set is a set of pods that runs only once on a host.
+```
+7. What is a stetefulSet
+```aidl
+- Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. 
+- Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods.
+```
+8. What is Kubectl and Kubelet?
+```aidl
+Kubectl:
+- it basically provides the CLI to run commands against the Kubernetes cluster with various ways to create and manage the Kubernetes component.
+
+Kubelet:
+- This is an agent service which runs on each node and enables the slave to communicate with the kubernetes master.
+```
+
+9. How do you check events in a cluster.
+```aidl
+- To get the events of a cluster in kubernetes.
+kubectl get events --context CLUSTER-NAME -A 
+```
+
+10. How do you troucbleshoot pod failures
+```aidl
+- We can use kubectl commands to check the pods health.
+Commands:
+---
+kubectl get pods --context CONTEXTNAME -n NAMESPACE | grep POD-NAME 
+---
+
+- Check the pod failure reason, by describing pod name and check the reason for pod failure.
+Commands:
+---
+kubectl describe pods PODNAME --context CONTEXTNAME -n NAMESPACE
+---
+
+- Check the pod failure logs
+Commands:
+---
+kubectl logs PODNAME --context CONTEXTNAME -n NAMESPACE -f
+---
+
+- To check previous failed container log.
+Commands:
+---
+kubectl logs PODNAME --context CONTEXTNAME -n NAMESPACE -c CONTAINER-NAME -p
+---
+```
+11. What is ETCD?
+```aidl
+- It is a database in kubernetes.
+- It stores the data in key value pair model.
+```
+
+12. How does rolling update happen.
+```aidl
+- When we perform a rolling update, it create a new pod with new code and let that pod come up.
+- Once the newly created pods comes UP, old pods gets terminated in a rolling fassion.
+```
+
+13. How do you port-forward to a service.
+```aidl
+kubectl port-forward svc/SERVICENAME LOCAL-PORT-NUMBER:SERVICE-PORT-NUMBER --context CONTEXTNAME -n NAMESPACE 
+```
+## Monitoring tools
+1. What are the monitoring tools you used.
+```aidl
+- Nagios and prometheus
+
+Nagios:
+- Helps in monitoring systems, networks, and applications.
+- It uses SSH clients to poll and gather remote instance details.
+
+Prometheus:
+- Prometheus helps us to monitor remote instances based on metrics exposed on the instances.
+- We need to have a node_exporter installed on nodes to gather the metrics.
+```
+
+2. What is NRPE?
+```
+- NRPE enables you to run plugins on remote Unix and Linux machines. 
+- This way, Nagios can monitor local resources such as memory usage and CPU on remote components.
+```
+3. What is OID Nagios?
+```
+- The Simple Network Management Protocol (aka SNMP) uses Object Identifiers for defining the Management Information Base.
+```
+
+4. Where we find the nagios failure logs.
+```aidl
+/var/log/nagios.log
+```
+
+5. Start/Stop/Restart nagios service
+```aidl
+START:
+service nagios start
+---
+STOP 
+service nagios stop
+---
+RESTART
+service nagios restart
+```
+
+6. What is the port number of prometheus and its node exporter.
+```aidl
+- Prometheus runs on "9090" port number.
+ 
+- Node_exporter runs on 9100 port number
+```
+
+7. Why do we use GRAFANA
+```aidl
+- Grafana used to visualise the data that we gathered to prometheus.
+- It runs on port number 443.
+- We can create customised dashboards or we can use the existing dashboards from grafana official page.
+```
+
+8. How do we enable alerting for any node or pod failures.
+```aidl
+- We can use alertmanager to enable alerting, it works on 9093 port number.
+```
+
+9. What kind of database that prometheus use.
+```aidl
+- prometheus uses time series database.
+- We have different time series databases, ex: InfluxDB, MongoDB.
+```
+
+## Elasticsearch
+1. What is elasticsearch.
+```aidl
+- It is a noSQL database.
+- It allows you to store, search, and analyze big volumes of data quickly and in near real time.
+- It is based on the Lucene search engine.
+```
+
+2. What is the minimum number of nodes that we use to form elasticsearch cluster.
+```aidl
+- We need to use 3 nodes to form a cluster in any database. That a advised count.
+```
+
+3. What is a Cluster?
+
+```
+- A cluster is a collection of nodes which together holds data and provides joined indexing and search capabilities.
+```
+
+4. What is a document in ElasticSearch?
+```
+- In an Elastic search, a document is a basic unit of information that can be indexed. 
+- It is expressed in JSON (key: value) pair. ‘{“user”: “nullcon”}’. 
+- Every single Document is associated with a type and a unique id.
+```
+5. What is a Shard
+```aidl
+- Every index can be split into several shards to be able to distribute data. 
+- The shard is the atomic part of an index, which can be distributed over the cluster if you want to add more nodes.
+```
+
+6. What is ELK stack
+```aidl
+E stands for ElasticSearch: It is used for storing logs.
+L stands for LogStash: It is used for both shipping as well as the processing and storing logs.
+K stands for Kibana: It is a visualization tool (a web interface) that is hosted through Nginx or Apache.
+```
+
+7. What is Mapping?
+```aidl
+- Mapping is a process that helps you define how a document is mapped to the search engine. 
+- Its searchable characteristics are included fields are tokenized as well as searchable.
+```
+
+8. What is X-pack in elasticsearch
+```aidl
+- It enables security for elacticsearch, We can provide user based access on elasticsearch.
+```
+
+9. How do you check the ES cluster health and indices and shards.
+```aidl
+Cluster health:
+Commands:
+curl -s -XGET CLUSTERNAME:9200/_cluster/health?pretty
+---
+Cluster indices:
+Commands:
+curl -s -XGET CLUSTERNAME:9200/_cat/indices?pretty
+---
+Cluster shards:
+Commands:
+curl -s -XGET CLUSTERNAME:9200/_cat/indices?pretty
+```
+
+10. What is Elasticsearch health statuses.
+```aidl
+- Health status is expressed by three colors: green, yellow, and red. 
+
+- A GREEN status means that all primary shards and their replicas are allocated to nodes. 
+- A YELLOW status means that all primary shards are allocated to nodes, but some replicas are not. 
+- A RED status means at least one primary shard is not allocated to any node.
+```
