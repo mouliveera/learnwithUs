@@ -1,22 +1,41 @@
-1. Introduction
-2. Shell, Terminal and Kernel
-3. Date and Callender
-4. Create files & Directories
-5. Text Files: Create, Merge & Play
-6. Rename Files, Directories and Delete
-7. Linking of Files and Directories
-8. File permissions
-9. Usage of “ls"
-10. Change permissions using “chmod”
-11. Count of words, lines and characters using “wc”
-12. Usage of Sort command
-13. "Cut” Usage on files
-14. Convert and copy Files with dd
-15. Help, View Fancy Text and Reduce of File Size
-16. How to write scripts. [ Hello World..]
-17. How to your commands in your scripts
-18. Shell Variables, Take user inputs using ‘read’
-19. Positional Parameters
+
+<details><summary>1. Introduction</summary>
+<p>
+INTRODUCTION ON SHELL Scripting:
+    
+    - A shell script is a list of commands in a computer program that is run by the Unix shell.
+    - It is a command line interpreter.
+</p>
+</details>
+
+
+<details><summary>2. Shell, Terminal and Kernel</summary>
+<p>
+Few details:
+  
+    - Shell is a interface between us and Ubuntu kernel.
+    - kernel takes the input from us, what ever we would like to do and prints the output.
+    - Terminal is a tool to execute commands.
+</p>
+</details>
+
+4. Date and Calender
+5. Create files & Directories
+6. Text Files: Create, Merge & Play
+7. Rename Files, Directories and Delete
+8. Linking of Files and Directories
+9. File permissions
+10. Usage of “ls"
+11. Change permissions using “chmod”
+12. Count of words, lines and characters using “wc”
+13. Usage of Sort command
+14. "Cut” Usage on files
+15. Convert and copy Files with dd
+16. Help, View Fancy Text and Reduce of File Size
+17. How to write scripts. [ Hello World..]
+18. How to your commands in your scripts
+19. Shell Variables, Take user inputs using ‘read’
+20. Positional Parameters
     Positional Parameters -2
 20. Reverse Quotes
 21. Mathematical expressions
