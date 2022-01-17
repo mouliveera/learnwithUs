@@ -19,23 +19,100 @@ Few details:
 </p>
 </details>
 
-4. Date and Calender
-5. Create files & Directories
-6. Text Files: Create, Merge & Play
-7. Rename Files, Directories and Delete
-8. Linking of Files and Directories
-9. File permissions
-10. Usage of “ls"
-11. Change permissions using “chmod”
-12. Count of words, lines and characters using “wc”
-13. Usage of Sort command
-14. "Cut” Usage on files
-15. Convert and copy Files with dd
-16. Help, View Fancy Text and Reduce of File Size
-17. How to write scripts. [ Hello World..]
-18. How to your commands in your scripts
-19. Shell Variables, Take user inputs using ‘read’
-20. Positional Parameters
+<details><summary>3. Date and Calender</summary>
+<p>
+
+Commands and Examples:
+```
+cal
+cal 2 2023
+```
+---
+```
+date
+date +%d-%m-%y-%H:%M
+```
+
+</p>
+</details>
+
+<details><summary>4. Create files & Directories</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>5. Rename Files, Directories and Deletes</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>6. Linking of Files and Directories</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>7. File permissions</summary>
+<p>
+    
+    user:group:other
+    
+    read: 4
+    write: 2
+    execute: 1
+    
+    Full permissions 7
+</p>
+</details>
+
+<details><summary>8. Usage of "ls"</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>9. Change permissions using "chmod"</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>10. Count of words, lines and characters using "wc"</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>11. Usage of Sort command</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>12. "Cut" Usage on files</summary>
+<p>
+
+</p>
+</details>
+
+
+<details><summary>13. How to write scripts. [ Hello World..]Mou</summary>
+<p>
+
+```
+    #!/bin/bash
+    echo "Hello world."
+    
+```
+</p>
+</details>
+
+
+19. How to your commands in your scripts
+20. Shell Variables, Take user inputs using ‘read’
+21. Positional Parameters
     Positional Parameters -2
 20. Reverse Quotes
 21. Mathematical expressions
