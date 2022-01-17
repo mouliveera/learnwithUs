@@ -98,7 +98,7 @@ date +%d-%m-%y-%H:%M
 </details>
 
 
-<details><summary>13. How to write scripts. [ Hello World..]Mou</summary>
+<details><summary>13. How to write scripts. [ Hello World..]</summary>
 <p>
 
 ```
