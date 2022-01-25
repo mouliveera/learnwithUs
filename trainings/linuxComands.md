@@ -34,3 +34,39 @@ history
 - Verify app logs[/var/logs/]
 - Usage of top command. 
 ```
+
+#### 25 Jan 2022
+- Discussed topics
+```
+- wc: word count[wc -l, wc <FILENAME>]
+- grep: It is a search utility in Linux. Ex: grep WORD <FILENAME>/<DIRECTORY>
+- vi editor:
+Usage: vi <FILENAME>
+Esc + i = Insert mode
+Esc + u = Undo
+Esc + o = New line[Include Insert]
+Esc + i -> Esc + : -> %s/<WORD-WHICH-YOU-WANT-TO-REPLACE>/<RESULTANT-WORD>/g [Ex: %s/Linux/Ubuntu/g]
+Esc + :<LINENumber> =  To go to specific line to Edit[Ex: Esc + :10 + Enter]
+Esc + 0 = To come to the start of the line in a file
+Esc + shift + A = To goto the END of the line
+Esc + dd = Delete a line.
+Esc + 2 + dd = Delete 2 lines in a row.
+Esc + shift G = To go to end of the file.
+Esc + gg = To go to start of the file.
+Esc + shift V + d = To select and delete lines.
+Esc + shift V -> Select lines -> Shift : -> s/<WORD YOU WANT TO REPLACE>/<RESULTANT-WORD>/g
+
+- sed: Stream editor, 
+Ex:
+Dry run:
+sed 's/Ganesh/Sudheer/g' FILENAME
+
+Replace a word in a file:
+sed -i 's/Ganesh/Sudheer/g' FILENAME
+
+- find:
+
+- locate:
+- awk
+```
+
