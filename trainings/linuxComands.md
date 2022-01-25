@@ -23,3 +23,14 @@ history
 - Remove a file # rm filename
 - Remove a director/folder # rm -rf directoryName
 ```
+
+#### 24 Jan 2022
+- Discussed topics
+```
+- Usage of ls, file permissions[chmod].
+- r=4, w=2, x=1, user permissions[chown]
+- Disk free[df -h] on a instance.
+- Disk usage[du -sh *], it lists all file and directories usage.
+- Verify app logs[/var/logs/]
+- Usage of top command. 
+```
