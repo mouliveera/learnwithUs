@@ -37,10 +37,11 @@ history
 
 #### 25 Jan 2022
 - Discussed topics
-```
+---
 - wc: word count[wc -l, wc <FILENAME>]
 - grep: It is a search utility in Linux. Ex: grep WORD <FILENAME>/<DIRECTORY>
 - vi editor:
+```
 Usage: vi <FILENAME>
 Esc + i = Insert mode
 Esc + u = Undo
@@ -55,16 +56,117 @@ Esc + shift G = To go to end of the file.
 Esc + gg = To go to start of the file.
 Esc + shift V + d = To select and delete lines.
 Esc + shift V -> Select lines -> Shift : -> s/<WORD YOU WANT TO REPLACE>/<RESULTANT-WORD>/g
-
+```
 - sed: Stream editor, 
+```
 Ex:
 Dry run:
 sed 's/Ganesh/Sudheer/g' FILENAME
 
 Replace a word in a file:
 sed -i 's/Ganesh/Sudheer/g' FILENAME
+```
 
+#### 26 Jan 2022
 - find:
+```
+Usage: find WHERE-TO-SEARCH -name FILENAME/REGULAR-EXPRESSION
+
+❯ find Desktop -name "*.png" # To find all .png files in Desktop
+
+❯ find ~/Desktop -name test.sh -exec cat {} \; # To find and cat a file
+
+❯ find ~/Desktop -name "*.sh" |xargs ls -lrt #To find and list the files using XARGS
+
+❯ find . -type d # To fine directory
+
+❯ find . -type f # To find files
+
+❯ find . -mtime -1 # Find files/Directories with in a day
+
+❯ find . -type f -mmin +10 # Find files with >10min aged old files
+
+❯ find . -mmin +15 -type d -exec cp -a {} {}.back \;  # To take back up of a file or directory 
+❯ find . -name s-1 -exec cp {} {}.$(date +%d%m%y%Hh%Mm) \;
+❯ find . -type f -exec cp {} {}.$(date +%d%m%y%Hh%Mm) \;
+
+DELETE A FILE OR DIRECTORY:
+❯ find . -type f -name s-1.sudheer -delete
+❯ find . -type f -mmin -5
+
+
+```
+
+Ex:
+---
+
+- FIND TYPE Example
+--
+❯ ls -lrt
+total 0
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-1
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-2
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-3
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-4
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-5
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 g-1
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 g-2
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 g-3
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 g-4
+-rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 g-5
+drwxr-xr-x  2 mouliveera  staff  64 Jan 26 09:59 sudheer-1
+drwxr-xr-x  2 mouliveera  staff  64 Jan 26 09:59 ganesh-1
+
+~/Desktop/ganesh/sudheer
+❯ find . -type f
+./g-5
+./g-2
+./g-3
+./g-4
+./s-1
+./g-1
+./s-4
+./s-3
+./s-2
+./s-5
+
+~/Desktop/ganesh/sudheer
+❯ find . -type d
+.
+./sudheer-1
+./ganesh-1
+---
+
+
+
+- CD Usage
+```
+- cd : Takes you to HOME directory
+- cd .. : Takes your to prevous directory
+- cd . : You will be in the same directory
+- cd - : To go back to previous directory
+
+Ex:
+---
+❯ pwd
+/Users/mouliveera/Desktop/ganesh
+
+❯ cd ..
+
+❯ pwd
+/Users/mouliveera/Desktop
+
+❯ cd -
+
+❯ pwd
+/Users/mouliveera/Desktop/ganesh
+
+❯ cd
+
+❯ pwd
+/Users/mouliveera
+---
+```
 
 - locate:
 - awk
