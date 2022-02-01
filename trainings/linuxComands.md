@@ -68,6 +68,7 @@ sed -i 's/Ganesh/Sudheer/g' FILENAME
 ```
 
 #### 26 Jan 2022
+  
 - find:
 ```
 Usage: find WHERE-TO-SEARCH -name FILENAME/REGULAR-EXPRESSION
@@ -94,14 +95,12 @@ DELETE A FILE OR DIRECTORY:
 ❯ find . -type f -name s-1.sudheer -delete
 ❯ find . -type f -mmin -5
 
-
 ```
 
 Ex:
----
 
 - FIND TYPE Example
---
+```
 ❯ ls -lrt
 total 0
 -rw-r--r--  1 mouliveera  staff   0 Jan 26 09:58 s-1
@@ -135,7 +134,7 @@ drwxr-xr-x  2 mouliveera  staff  64 Jan 26 09:59 ganesh-1
 .
 ./sudheer-1
 ./ganesh-1
----
+```
 
 
 
@@ -170,5 +169,4 @@ Ex:
 
 - locate:
 - awk
-```
 
