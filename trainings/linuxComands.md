@@ -168,5 +168,51 @@ Ex:
 ```
 
 - locate:
+```
+Locate: It will find th file/Directory data from system cache or local DB.
+
+Ex: 
+locate FILENAME/DIRECTORY
+```
+
+- Cut
+```
+cut: Linux utility tool to trim output
+
+d: Delimeter
+f: Field
+
+Ex:
+---
+❯ cat image-tags-2.sh |grep TAG= |grep -v \# |cut -d'-' -f1
+TAG=2021
+
+~
+❯ cat image-tags-2.sh |grep TAG= |grep -v \# |cut -d'-' -f2
+07
+
+~
+❯ cat image-tags-2.sh |grep TAG= |grep -v \# |cut -d'-' -f3
+29;
+
+~
+❯ cat image-tags-2.sh |grep TAG= |grep -v \# |cut -d'-' -f1,2,3
+TAG=2021-07-29;
+---
+
+Work on:
+❯ cat image-tags-2.sh |grep TAG= |grep -v \# |cut -d'-' -f1,2,3 |sed 's/TAG/DATE/g'
+DATE=2021-07-29;
+
+```
+
 - awk
+```
+awk: Is a tool like "cut" in Linux.
+
+Ex:
+awk {print} FILENAME
+awk '{print $1}' FILENAME
+```
+
 
