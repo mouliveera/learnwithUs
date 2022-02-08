@@ -215,4 +215,46 @@ awk {print} FILENAME
 awk '{print $1}' FILENAME
 ```
 
+- Linking
+
+- SoftLink
+```
+- Both source and copied file maintains different INODE Number
+- Source file deletes, linked file is no more useful, it losts all the records.
+
+Usage: ln -s <SOURCE> <DESTINATION>
+```
+Ex:
+❯ ln -s Repository/learn/trainings/linuxComands.md.backup hardlink.md
+
+- HardLink 
+```
+- If you remove a original file,  copied file stays.
+- Source file and copied file both maintains the same INODE number.
+
+
+Usage: ln <SOURCE> <DESTINATION>
+```
+Ex:
+❯ ln Repository/learn/trainings/linuxComands.md.backup hardlink.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
