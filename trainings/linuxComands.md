@@ -238,10 +238,50 @@ Usage: ln <SOURCE> <DESTINATION>
 Ex:
 ❯ ln Repository/learn/trainings/linuxComands.md.backup hardlink.md
 
+## 9 Feb 2022
+```
+echo $@    -> To print all the arguments that you passed.
+
+echo $#    -> To print number of arguments that you passed.
+
+echo $?   -> Exit code of previously ran commands
+
+> - Redirects the command results
+>> - Appends the command results
+1> - StandardOut
+2> - StandardError
+```
+
+#### Exit CODES:
+0 - Sucess
+1-255 - Failure
 
 
+- Exits with a zero (0) exit status has succeeded.
+- A non-zero (1-255) exit status indicates failure.
+- If a command is not found, the child process created to execute it returns a status of 127. If a command is found but is not executable, the return status is 126.
 
+```
+Ex:
+❯ echo Trainings
+Trainings
 
+❯ echo $?
+0
+---
+❯ mkojojo
+zsh: command not found: mkojojo
+
+❯ echo $?
+127
+```
+
+####  IF CONDITION
+
+SYNTAX: 
+if [ CONDITION ]
+	then
+	STATEMENT
 
 
 
