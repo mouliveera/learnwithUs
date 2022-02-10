@@ -282,7 +282,33 @@ SYNTAX:
 if [ CONDITION ]
 	then
 	STATEMENT
+------
 
+## 10 Feb 2022
+#### LOGICAL AND , OR
+```
+#!/bin/bash
+# Logical AND and OR
+
+echo -e "Enter your age: \c"
+read age
+#<
+#lt - lessThan
+#le - lessThanEqualTo
+#>
+#gt - greaterThan
+#ge - greaterThanEqualTo
+
+if [ $age -le 10 ] ; then
+  echo "ChildHOOD";
+elif [ $age -gt 10 ] && [ $age -le 30 ]; then
+  echo "Young AGE";
+
+else
+  echo "OldAGE"
+fi
+
+```
 
 
 
