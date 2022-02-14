@@ -15,7 +15,7 @@ history
 - Leared abot date and cal commands.
 - Discussed about backups and rename[mv] commands
 - To create a EMPTY file  # touch
-- Create a file with CAT COMMAND # cat >> filename 
+- Create a file with CAT COMMAND # cat >> filename
 - To find hidden files # ls -la
 - List the files with sorting manner # ls -lrt
 - Create a directory # mkdir
@@ -32,7 +32,7 @@ history
 - Disk free[df -h] on a instance.
 - Disk usage[du -sh *], it lists all file and directories usage.
 - Verify app logs[/var/logs/]
-- Usage of top command. 
+- Usage of top command.
 ```
 
 #### 25 Jan 2022
@@ -57,7 +57,7 @@ Esc + gg = To go to start of the file.
 Esc + shift V + d = To select and delete lines.
 Esc + shift V -> Select lines -> Shift : -> s/<WORD YOU WANT TO REPLACE>/<RESULTANT-WORD>/g
 ```
-- sed: Stream editor, 
+- sed: Stream editor,
 ```
 Ex:
 Dry run:
@@ -68,7 +68,7 @@ sed -i 's/Ganesh/Sudheer/g' FILENAME
 ```
 
 #### 26 Jan 2022
-  
+
 - find:
 ```
 Usage: find WHERE-TO-SEARCH -name FILENAME/REGULAR-EXPRESSION
@@ -87,7 +87,7 @@ Usage: find WHERE-TO-SEARCH -name FILENAME/REGULAR-EXPRESSION
 
 ❯ find . -type f -mmin +10 # Find files with >10min aged old files
 
-❯ find . -mmin +15 -type d -exec cp -a {} {}.back \;  # To take back up of a file or directory 
+❯ find . -mmin +15 -type d -exec cp -a {} {}.back \;  # To take back up of a file or directory
 ❯ find . -name s-1 -exec cp {} {}.$(date +%d%m%y%Hh%Mm) \;
 ❯ find . -type f -exec cp {} {}.$(date +%d%m%y%Hh%Mm) \;
 
@@ -171,7 +171,7 @@ Ex:
 ```
 Locate: It will find th file/Directory data from system cache or local DB.
 
-Ex: 
+Ex:
 locate FILENAME/DIRECTORY
 ```
 
@@ -227,7 +227,7 @@ Usage: ln -s <SOURCE> <DESTINATION>
 Ex:
 ❯ ln -s Repository/learn/trainings/linuxComands.md.backup hardlink.md
 
-- HardLink 
+- HardLink
 ```
 - If you remove a original file,  copied file stays.
 - Source file and copied file both maintains the same INODE number.
@@ -278,7 +278,7 @@ zsh: command not found: mkojojo
 
 ####  IF CONDITION
 
-SYNTAX: 
+SYNTAX:
 if [ CONDITION ]
 	then
 	STATEMENT
@@ -310,17 +310,54 @@ fi
 
 ```
 
+## 14 Feb 2022
 
+#### IF CONDITIONS
 
+#### Logical AND and OR
+```
+echo "Enter age: \c"
 
+if [ $age -lt 10 ]; then
+echo "CHILDHOOD"
+if [ $age -gt 10 ] && [ $age -le 30 ]; then
+echo "YOUNG AGE"
+elif [ $age -gt 30 ] && [ $age -le 40 ]; then
+echo "MIDDLE AGE"
+elif [ $age -gt 40 ]; then
+echo "OLD"
+fi
+```
 
+#### CASE STATEMENTS
+```
+case EXPRESSION in
 
+  PATTERN_1)
+    STATEMENTS
+    ;;
 
+  PATTERN_2)
+    STATEMENTS
+    ;;
 
+  PATTERN_N)
+    STATEMENTS
+    ;;
 
+  *)
+    STATEMENTS
+    ;;
+esac
 
+```
 
-
-
-
-
+#### FOR Loop
+```
+for VARIABLE in 1 2 3 4 5 .. N
+do
+	command1
+    ..
+	commandN
+done
+```
