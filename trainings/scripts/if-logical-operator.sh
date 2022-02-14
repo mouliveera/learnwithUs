@@ -22,12 +22,14 @@ read age
 ######################
 
 ## Logical OR
+# : '
+# Hi mouli How are you.
+# echo test
+# ls -l
+# '
+
 if [ $age -le 10 ]; then
 	echo "Child age";
 elif [ $age > 10 ] || [ $age <= 20 ]; then
 	echo "YOUNG age";
 fi
-
-##
-# echo "Enter yes/no: \c"; read opt; if [[ $opt == "yes" ]]; then echo "You choose YES"; elif [[ $opt == "no" ]]; then echo "You CHOOSE no"; else echo "Nothing you choose";fi
-#
