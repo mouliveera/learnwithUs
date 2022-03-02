@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: yourreplicaset
+  labels:
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev
+  template:
+    metadata:
+      name: static-web-1
+      namespace: dev
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: web
+      #image: nginx
+          image: bitnami/nginx
+          ports:
+            - name: web
+              containerPort: 80
+              protocol: TCP
