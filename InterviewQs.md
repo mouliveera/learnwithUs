@@ -755,3 +755,71 @@ curl -s -XGET CLUSTERNAME:9200/_cat/indices?pretty
 - A YELLOW status means that all primary shards are allocated to nodes, but some replicas are not. 
 - A RED status means at least one primary shard is not allocated to any node.
 ```
+
+## Linux
+1.  How to check previously run commands were successful or not in the shell?
+Ans:
+
+```echo $?```
+
+Explanation:
+- If the exit code returns "0" means, previous commands ran successfully.
+- If the exit code returns other than "0" means, there were some issues with previously run commands.
+
+2. How to list last 60 day old files in a given directory
+Ans:
+- We can use find commands to search for files.
+
+Commands:
+```
+find . -mtime +60 -print
+
+(or)
+
+find DIRECTORY -mtime +60
+```
+
+3. We have different files in a directory, out of them 1 file has the word "United" in it. How can we find the file with the word "United".
+Ans:
+- We can use "grep"
+```Ex: grep -rs United *```
+
+4. Explain what are the file permissions in linux
+Ans:
+- In Linux, there are 3 main types of file permissions: read, write and execute.
+- Read: The read permission grants uses the ability to open and read a file. 4
+- Write: Write permission allows a user to open and modify or edit the file's contents and save the changes. 2
+- Execute: This allows a user to execute or run the file or a program or shell script which is executable. 1
+
+5. How can we check the disk usage in linux server
+Ans:
+- we can use command `df -h` to find the disk usage in percentages.
+
+6. What is the difference between commands "cp[copy]" and "mv[move]"
+Ans:
+- Copy: Copying a file to different location
+- Move: It is like cut and paste. We can consider it as RENAME.
+
+7. Differences between Softlink and Hardlink?
+Ans:
+Hardlink:
+- Hardlink cannot be created for directories. A hard link can only be created for a file.
+- If you remove a original file,  copied file stays.
+- Source file and copied file both maintains the same INODE number.
+```Usage: ln <SOURCE> <DESTINATION>```
+
+Softlink:
+- Symbolic links or symlinks can link to a directory.
+- Both source and copied file maintains different INODE Number
+- Source file deletes, linked file is no more useful, it losts all the records.
+```Usage: ln -s <SOURCE> <DESTINATION>```
+
+8. Any idea on SED in linux, how can we use them
+Ans:
+sed: Stream editor,
+Ex:
+Dry run:
+```sed 's/Ganesh/Sudheer/g' FILENAME```
+
+Replace a word in a file:
+```sed -i 's/Ganesh/Sudheer/g' FILENAME```
