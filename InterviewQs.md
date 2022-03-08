@@ -823,3 +823,60 @@ Dry run:
 
 Replace a word in a file:
 ```sed -i 's/Ganesh/Sudheer/g' FILENAME```
+
+9. How to stop a running process in Linux?
+To stop a running process, use the kill command followed by the PID of the process.
+
+For example, to stop a process with PID 3836, run the command
+
+kill 3836
+
+10. What is use of top and PS commands
+Ans:
+top: Will list all the processes with their CPU and Memory usage in linux server with live data.
+PS: ps commands lists the all the processes with PID and commands.
+
+
+## SQL
+1. What are Tables and Fields?
+Ans:
+A table is an organized collection of data stored in the form of rows and columns. Columns can be categorized as vertical and rows as horizontal. The columns in a table are called fields while the rows can be referred to as records.
+
+2. What is a Primary Key?
+Ans:
+The PRIMARY KEY constraint uniquely identifies each row in a table. It must contain UNIQUE values and has an implicit NOT NULL constraint.
+
+3. What is the difference between Primary key and Unique Key?
+Ans:
+Both Primary and Unique key carry unique values but the primary key can not have a null value where the Unique key can. And in a table, there cannot be more than one Primary key but unique keys can be multiple.
+
+4. What is an index?
+Ans:
+- Indexes help speed up searching in the database.
+- Indexes are used to find all rows matching with some columns and then to skim through only those subsets of the data to find the matches.
+
+5. Why do we use the FLOOR function in SQL Server?
+Ans:
+- The FLOOR() function helps us to find the largest integer value to a given number which can be an equal or lesser number.
+
+6. What is the difference between DELETE and TRUNCATE commands?
+Ans:
+DELETE: This query is used to delete or remove one or more existing tables.
+
+```
+The syntax for the DELETE command:
+
+DELETE FROM table_name
+[WHERE condition];
+
+Ex:
+delete from student where student_name=’Ganesh’
+```
+
+TRUNCATE: This statement deletes all the data from inside a table.
+```
+TRUNCATE TABLE Table_name;
+
+Ex:
+truncate table student
+```
