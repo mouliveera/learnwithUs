@@ -5,18 +5,18 @@ metadata:
   name: hello
   namespace: dev
 spec:
-  replicas: 2
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 100%
+      maxUnavailable: 50%
   selector:
     matchLabels:
-      app: hello
+      app: rs
   template:
     metadata:
       labels:
-        app: hello
+        app: rs
     spec:
       affinity:
         # ⬇⬇⬇ This ensures pods will land on separate hosts
@@ -26,9 +26,17 @@ spec:
               matchExpressions: [{ key: app, operator: In, values: [hello] }]
             topologyKey: "kubernetes.io/hostname"
       containers:
-      - name: hello-from
+      - name: hello
         image: pbitty/hello-from:latest
         ports:
           - name: http
             containerPort: 80
-      terminationGracePeriodSeconds: 1
+        volumeMounts:
+        - name: hello-configmap
+          mountPath: "/mouli/sudheer"
+          readOnly: true
+      volumes:
+        - name: hello-configmap
+          configMap:
+            name: hello-configmap
+
