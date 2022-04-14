@@ -16,3 +16,11 @@ kube-controller-manager
 cloud-controller-manager
 ```
 
+#### 14-APR-2022
+- GitHub: Creation of branch anc commits
+- Node components
+- SETUP
+- kubectl installation: https://kubernetes.io/docs/tasks/tools/
+- kubectx
+
+
