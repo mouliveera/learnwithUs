@@ -41,7 +41,7 @@ You can install using kubeadm; It runs as a service on the GKE env.
 
 **livenessProbe:** Indicates wether the container is running.
 
-**readinessProbe:** 
+**readinessProbe:**
 - Indicates whether the container is ready to respond to requests.
 - If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod
 ---
@@ -64,7 +64,7 @@ for `Deployments`.
 ***
 ---
 
-#### Deployments: 
+#### Deployments:
 - Deployments are intended to replace Replication controllers.
 - Rolling Updates helpful during the version upgrades.
 - Deployments provides capability to do upgrade underlying pods, seemlessly by rolling upgrade.
@@ -470,6 +470,7 @@ kubectl get PersistanceVolumeClaim # to list the PVC's
 - Default policy is `PersistanceVolumeReclaimPolicy: Retain` -> It is manually deleted by admin.
 - PersistanceVolumeReclaimPolicy: Delete -> Once claim is deleted volume will be deleted.
 - PersistanceVolumeReclaimPolicy: Recycle -> Data will be removed, to available for other claims.
+- Once the PV is bound to a PVC, the remaining storage can not be used by other PVC's.
 
 Storage Class:
 Static provisioning:
@@ -501,9 +502,29 @@ CNI: Container network interface - Installed on each node to provide better comm
 
 Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
 
+- We don't want users to remember port and IP, so we don't allow to use NodePort service.
+- When we use Loadbalancer[CloudNative] type service, provider creates a network Loadbalancer. It comes with external IP, so that we can access publicly. We need to have multiple LB's for different services, Having Loadbalancer is costEffective.
+- To avoid^^, INGRESS[LAYER 7 Loadbalancer]. It provides the PATH based routing to the Services. You can configure SSL.
+
+Different INGRESS controllers:
+- GCP HTTP[S] Loadbalancer[GCE]
+- nginx
+- HAProxy
+- Traefik
+
+#### INGRESS resources
 Client -> Ingress-managed Loadbalancer -> Ingress -> Route rules -> Service -> PODS
 
 
+#### Mock
+1. Deploy a pod named nginx-pod using the nginx:alpine image.
+```
+kubectl run nginx-pod --image nginx:alpine
+```
+2. Deploy a messaging pod using the redis:alpine image with the labels set to tier=msg.
+```
+
+```
 
 
 
