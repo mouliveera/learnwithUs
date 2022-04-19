@@ -23,4 +23,14 @@ cloud-controller-manager
 - kubectl installation: https://kubernetes.io/docs/tasks/tools/
 - kubectx
 
+#### 19-APR-2022
+###### CRUD
+- create
+- read
+- update
+- delete
 
+- How to create a POD manually: imperative approach
+```
+❯ kubectl run lab-nginx --image nginx --namespace lab --dry-run=client -o yaml
+```
