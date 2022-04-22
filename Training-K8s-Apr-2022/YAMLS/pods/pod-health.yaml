@@ -1,0 +1,12 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: healthy-pod
+
+spec:
+  containers:
+    - name: health
+      image: nginx
+
