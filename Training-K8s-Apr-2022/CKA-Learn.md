@@ -36,6 +36,8 @@ cloud-controller-manager
 ```
 
 #### 22-APR-2022
+- Projects, Cluster, Nodes, Pods, and Containers
+- POD YAMLS and ReplicaSets
 
 - How to create a service imperitive approach
 ```
