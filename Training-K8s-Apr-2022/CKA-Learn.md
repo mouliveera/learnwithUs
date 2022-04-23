@@ -34,3 +34,10 @@ cloud-controller-manager
 ```
 ❯ kubectl run lab-nginx --image nginx --namespace lab --dry-run=client -o yaml
 ```
+
+#### 22-APR-2022
+
+- How to create a service imperitive approach
+```
+kubectl expose pods webserver --port 8080 --type LoadBalancer -n lab --dry-run=client -o yaml
+```
