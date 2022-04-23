@@ -1,12 +1,14 @@
 apiVersion: apps/v1
 
-kind: ReplicaSet
+kind: Deployment
 
 metadata:
-  name: mouli
-  namespace: lab
+  name: first-deployment
+  labels:
+    app: nginx-test
 
 spec:
+### REPLICASET SPEC ####
   replicas: 2
   selector:
     matchLabels:
@@ -20,5 +22,5 @@ spec:
 
     spec:
       containers:
-        - name: nginx-rs
+        - name: chaitu
           image: nginx

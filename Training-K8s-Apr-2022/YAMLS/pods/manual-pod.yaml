@@ -5,7 +5,7 @@ metadata:
   labels:
     run: lab-nginx
   name: yaml-nginx
-  namespace: lab
+    #  namespace: lab
 spec:
   containers:
   - image: nginx
