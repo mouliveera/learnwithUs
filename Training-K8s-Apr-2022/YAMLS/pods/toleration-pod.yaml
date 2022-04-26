@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: toleration-pod
+  name: toleration-pod-1
+  namespace: lab
+spec:
+  containers:
+  - image: redis
+    name: toleration-pod
+  tolerations:
+    - key: "name"
+      operator: "Equal"
+      value: "node-1"
+      effect: "NoSchedule"

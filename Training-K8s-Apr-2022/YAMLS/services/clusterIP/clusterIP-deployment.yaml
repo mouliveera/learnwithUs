@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-ip
+spec:
+  selector:
+    matchLabels:
+      run: cluster-ip
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: cluster-ip
+    spec:
+      containers:
+      - name: cluster-ip
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+        ports:
+        - containerPort: 8080

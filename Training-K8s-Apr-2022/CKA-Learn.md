@@ -43,3 +43,21 @@ cloud-controller-manager
 ```
 kubectl expose pods webserver --port 8080 --type LoadBalancer -n lab --dry-run=client -o yaml
 ```
+- Taints and Tolerations
+
+###### TAINT Effects: 
+- NoSchedule: Dont schedule any pod on the node.
+- PreferNoSchedule: System tries to not schedule any pod on the node, but no guarenty.
+- NoExecute: No new pod will schedule on the node and existing pods will evict if they can not tolarate the taint.
+
+```
+kubectl taint node <NODENAME> value:NoSchedule
+```
+
+#### 26-APR-2022
+- Creating jobs and cronJobs
+- What are services and types of services: https://kubernetes.io/docs/concepts/services-networking/service/
+- NodePort, ClusterIp
+
+
+

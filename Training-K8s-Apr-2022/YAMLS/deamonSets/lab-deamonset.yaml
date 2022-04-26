@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+
+kind: DaemonSet
+
+metadata:
+  name: fluentd-elasticsearch
+  labels:
+    app: fluentd-logging
+
+spec:
+  selector:
+    matchLabels:
+      app: fluentd-logging
+### POD SPEC ###
+  template:
+    metadata:
+      name: fluentd-logging
+      labels:
+        app: fluentd-logging
+
+    spec:
+      containers:
+        - name: fluentd
+          image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
