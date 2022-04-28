@@ -1,3 +1,4 @@
+#### It is an example for ClusterIP services
 - We need
 1. Redis master - Deployment
 2. Redis slave - Deployment
