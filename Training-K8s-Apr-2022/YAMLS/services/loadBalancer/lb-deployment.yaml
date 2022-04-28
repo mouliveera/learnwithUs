@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lb-test
+spec:
+  selector:
+    matchLabels:
+      run: lb-test
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: lb-test
+    spec:
+      containers:
+      - name: lb-test
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+        ports:
+        - containerPort: 8080
