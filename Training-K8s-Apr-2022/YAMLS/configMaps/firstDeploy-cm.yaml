@@ -1,0 +1,21 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: firstdeploy-cm
+
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <h1>This is a TEST NGINX page</h1>
+
+    <p>By Chaitanya.</p>
+
+    </body>
+    </html>
+
+

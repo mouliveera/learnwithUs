@@ -1,0 +1,12 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: lab-cm
+
+#Instead SPEC we use DATA
+data:
+  user.details: |
+    user1=Chaitu
+    user2=Mouli

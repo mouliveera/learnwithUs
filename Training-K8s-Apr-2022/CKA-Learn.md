@@ -60,4 +60,9 @@ kubectl taint node <NODENAME> value:NoSchedule
 - NodePort, ClusterIp
 
 
+#### 29-APR-2022
+- What are configMaps and Secrets
+- How to create and mount them on a POD/DEPLOYMENT
+
+
 
