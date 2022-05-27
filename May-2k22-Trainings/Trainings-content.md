@@ -36,3 +36,10 @@ Follow: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/
 - Markdown page document: https://www.markdownguide.org/basic-syntax/
 - Terminals for windows: https://alternativeto.net/software/iterm2/?platform=windows [ubuntu is recommended]
 
+
+## 27-05-2022
+- How to configure GitHub MFA and SSH keys. ref: https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
+- GitHub Primary and secondary emails.
+- AWS cli configure. Ref: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+- AWS IAM Access and Secret keys.
+- AWS IAM console and commands line access.
