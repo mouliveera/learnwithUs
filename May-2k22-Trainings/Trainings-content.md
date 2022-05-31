@@ -108,13 +108,13 @@ Ref: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volu
 - Discussed docker image concepts
 - Rough notes:
 - Dockerfile:
----
+```
 FROM ubuntu:20.04
 COPY ./mveera /mveera
 CMD ["/mveera"]
 RUN apt update
 RUN apt-get install redis -y
----
+```
 
 - Build an image
 ```
