@@ -102,3 +102,58 @@ tmpfs            97M  4.0K   97M   1% /run/user/1000
  ```
 
 Ref: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
+
+## 31-05-2022
+
+- Discussed docker image concepts
+- Rough notes:
+- Dockerfile:
+---
+FROM ubuntu:20.04
+COPY ./mveera /mveera
+CMD ["/mveera"]
+RUN apt update
+RUN apt-get install redis -y
+---
+
+- Build an image
+```
+docker build -t mveera-ubuntu-redis:latest .
+docker images
+```
+- Login to docker container
+```
+docker ps # Lists the containers running
+dcoker exec -it <CONTAINER-ID> bash # Login
+```
+
+- Create a container with an image and login to the container
+```
+docker run -it <IMAGE ID>  bash
+```
+
+- Create a container in detach mode
+```
+docker run -it -d <IMAGE ID>  bash
+```
+
+- Docker login to your account and push the images to the DockerHub
+```
+docker login   #Login to you dockerHub account
+
+docker images
+
+docker tag <IMAGE ID> <YOUR IMAGE NAME>:<TAG>
+Ex:
+docker tag b55df6b4b60d mveera-ubuntu-redis:1.0 #Give a tag[Commit in gitHub] to the image
+```
+---
+```
+docker image push <REGISTRY NAME>/<YOUR IMAGE NAME>:<TAG>
+Ex:
+docker image push mouliveera/mveera-ubuntu-redis:1.0
+```
+
+Sources:
+- https://docs.docker.com/engine/reference/commandline/tag/
+- https://docs.docker.com/engine/reference/commandline/push/
