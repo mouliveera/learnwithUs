@@ -1,0 +1,174 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/mveera/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="gallifrey"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="kayid"
+ZSH_THEME="oxide"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  bundler
+  dotenv
+  macos
+  rake
+  rbenv
+  ruby
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mveera/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mveera/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mveera/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mveera/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias kpu='kubectl --context prod-us-pri -n prod-us'
+alias kpum='kubectl --context prod-us-pri -n monitor'
+alias kpe='kubectl --context prod-eu-pri -n prod-eu'
+alias kpem='kubectl --context prod-eu-pri -n monitor'
+alias kqa='kubectl --context qa -n qa'
+alias kqam='kubectl --context qa -n monitor'
+alias kdev='kubectl --context dev -n dev'
+alias kdevm='kubectl --context dev -n monitor'
+alias ke2e='kubectl --context e2e -n e2e'
+alias ke2em='kubectl --context e2e -n monitor'
+alias ksb='kubectl --context sandbox-pri -n sandbox'
+alias ksbm='kubectl --context sandbox-pri -n monitor'
+alias kops='kubectl --context ops'
+###GetContainerImage###
+alias kdevi="kubectl get pods --context dev -n dev -l app=r4e -o=jsonpath='{..image}' | tr -s '[[:space:]]' '\n' | sort |    uniq | awk -F'/' '{print $NF}' | egrep 'r4e'"
+alias kqai="kubectl get pods --context qa -n qa -l app=r4e -o=jsonpath='{..image}' | tr -s '[[:space:]]' '\n' | sort |    uniq | awk -F'/' '{print $NF}' | egrep 'r4e'"
+alias ke2ei="kubectl get pods --context e2e -n e2e -l app=r4e -o=jsonpath='{..image}' | tr -s '[[:space:]]' '\n' | sort |    uniq | awk -F'/' '{print $NF}' | egrep 'r4e'"
+alias kpui="kubectl get pods --context prod-us-pri -n prod-us -l app=r4e -o=jsonpath='{..image}' | tr -s '[[:space:]]' '\n' | sort |    uniq | awk -F'/' '{print $NF}' | egrep 'r4e'"
+alias kpei="kubectl get pods --context prod-eu-pri -n prod-eu -l app=r4e -o=jsonpath='{..image}' | tr -s '[[:space:]]' '\n' | sort |    uniq | awk -F'/' '{print $NF}' | egrep 'r4e'"
+###cloudsql-app###
+alias kpu-sql="kpu exec -it deploy/cloudsql-app -- bash"
+alias kpe-sql="kpe exec -it deploy/cloudsql-app -- bash"
+###Prometheus###
+alias kpu-prom='kubectl --context prod-us-pri port-forward svc/prometheus-prometheus 9090 -n monitor'
+alias kpe-prom='kubectl --context prod-eu-pri port-forward svc/prometheus-prometheus 9090 -n monitor'
+###RabbitMQ###
+alias kpu-rmq='kpu port-forward svc/rabbitmq-prod-us-pri 15672'
+alias kpe-rmq='kpe port-forward svc/rabbitmq-prod-eu-pri 15672'
+
+alias k=kubectl
+
+kl ()
+{
+ a=$1
+ b=$2
+ cn="$(echo $1 | awk -F'-' '{print $1,"-",$2}' | sed 's/[[:space:]]//g')"
+ echo $cn
+ if [[ "$b" =~ "prod-us.*" ]]; then
+ 	b=prod-us-pri;
+ 	elif [[ $b =~ prod-eu.* ]]; then
+ 	b=prod-eu-pri;
+fi
+eval kubectl logs  --context "$b" --tail 100 "$a" "$cn" -n "$2"
+#Usage
+#kl <podName> <env>
+#kl r4e-acommon-5798ffc49c-kq2qv e2e
+}
+
+#gnu-sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+#OPS dir
+OPS="/Users/mveera/Repositories/Reputation/ops"
+export OPS=/Users/mveera/Repositories/Reputation/ops
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
