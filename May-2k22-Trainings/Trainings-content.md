@@ -157,3 +157,35 @@ docker image push mouliveera/mveera-ubuntu-redis:1.0
 Sources:
 - https://docs.docker.com/engine/reference/commandline/tag/
 - https://docs.docker.com/engine/reference/commandline/push/
+
+## 6-6-2022
+
+- EC2 instance created
+- Installed AWS cli
+```
+	- apt-get update
+	- apt-get install aws
+```
+- Configured AWS authentications[AccessKeys and SecretKeys]
+- run aws cli commands
+```
+	- aws s3 ls --profile <profile name>
+```
+- Create an AMI and use it for next EC2 instance.
+
+
+#### Try:
+1.
+```
+- Create an IAM role with s3 permissions.
+- Attach it to EC2 while creating an instance.
+- Try running 
+```
+
+---
+2.
+```
+- Create an EC2 instance
+- Install OpenVpn
+- and access it in your web browser.
+```
