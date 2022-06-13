@@ -189,3 +189,34 @@ Sources:
 - Install OpenVpn
 - and access it in your web browser.
 ```
+
+## 13-05-2022
+
+- Docker image clean up.
+- Docker service and networks
+- What are AMI's[Amazon images], docker images and kubernetes.
+- How to check the size of each step in docker image build process
+```
+docker history <IMAGE-ID>
+```
+
+- Some useful commands: Docker
+```
+❯ docker image ls
+❯ docker image prune --filter=dangling=true
+
+❯ docker image prune -a --force --filter "until=168h"
+
+With force option, it wont promt for yes/no option.
+
+7 days = 168hours
+
+```
+- prune: is useful to clean and docker resource[Like images, container, volumes, etc]
+
+TASK Given:
+
+- Create a sample web service with 2 replicas.
+- Check how the service distributes traffic between the containers.
+
+Ref: https://docs.oracle.com/cd/E37670_01/E75728/html/docker-swarm-service-create.html
