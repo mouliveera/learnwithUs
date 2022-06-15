@@ -1,0 +1,9 @@
+from ubuntu:18.04
+
+#include "redis"
+
+#include(redis.m4) 
+
+RUN apt-get update && \
+	apt-get install -y nginx
+
