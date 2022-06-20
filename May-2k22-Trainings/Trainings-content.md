@@ -220,3 +220,35 @@ TASK Given:
 - Check how the service distributes traffic between the containers.
 
 Ref: https://docs.oracle.com/cd/E37670_01/E75728/html/docker-swarm-service-create.html
+
+## 20-06-2022
+
+- What are services in Docker, how they manage container under them.
+- What are LABELS, how we filter the containers.
+
+
+Task: 
+1. Create multiple containers with different LABELS.
+
+```
+Ex:
+Create containers with followeing labels
+env=dev
+env=qa
+env=prod
+
+docker ps --filter label=env={ENV}
+ex:
+docker ps --filter label=env=dev
+docker ps --filter label=env=qa
+```
+
+2. 
+- Create 2 ec2 instances in AWS.
+- Create a LoadBalancer[LB] and attach Ec2 instances to that LoadBalancer. It should be NetworkLoadBalancer.
+
+Whenever you hits the loadBalancer URL in webBrowser, it should goto the random EC2 instances
+
+
+READ: What are loadBalancers types
+https://aws.amazon.com/elasticloadbalancing/
