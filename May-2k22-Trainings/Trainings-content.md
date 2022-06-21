@@ -252,3 +252,16 @@ Whenever you hits the loadBalancer URL in webBrowser, it should goto the random 
 
 READ: What are loadBalancers types
 https://aws.amazon.com/elasticloadbalancing/
+
+## 21-06-2022
+- Conclusion on Docker
+- Orchestration tools[Docker swarm, K8s]
+- What is kubernetes and why to use.
+- Local initial setup of kubernetes
+
+#### Required tools:
+- Docker Desktop
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+- [kubectx](https://developers.redhat.com/blog/2019/05/27/command-line-tools-for-kubernetes-kubectl-stern-kubectx-kubens#stern)
+
