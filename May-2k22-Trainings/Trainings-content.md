@@ -265,3 +265,18 @@ https://aws.amazon.com/elasticloadbalancing/
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
 - [kubectx](https://developers.redhat.com/blog/2019/05/27/command-line-tools-for-kubernetes-kubectl-stern-kubectx-kubens#stern)
 
+## 22-06-2022
+- We discussed
+#### Control Plane Components
+- kube-apiserver
+- etcd
+- kube-scheduler
+- kube-controller-manager
+- cloud-controller-manager
+
+#### Node Components
+- kubelet
+- kube-proxy
+- Container runtime
+
+Please go thru [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
