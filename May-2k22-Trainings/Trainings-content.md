@@ -280,3 +280,30 @@ https://aws.amazon.com/elasticloadbalancing/
 - Container runtime
 
 Please go thru [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+
+## 23-06-2022
+- Why do need to use Minikube[It is for local testing]
+- What are different kubernetes services in different clouds. [EKS(aws), GKE(GoogleCloudPlatform), AKS(Azure)]
+- How to create eks cluster in AWS.
+```
+eksctl create cluster --name <CLUSTER-NAME> --region <REGION>
+
+Ex:
+eksctl create cluster --name demo-cluster --region us-east-1 --profile personal
+```
+- How to delete the eks cluster
+```
+eksctl delete cluster --name demo-cluster --region us-east-1 --profile personal
+```
+- How to start multi node minikube cluster in local.
+```
+minikube start --nodes 2 -p multinode-demo
+```
+
+- How to stop
+```
+minikube stop -p multinode-demo
+```
+
+Ref: https://minikube.sigs.k8s.io/docs/tutorials/multi_node/
+
