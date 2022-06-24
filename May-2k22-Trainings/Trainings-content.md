@@ -307,3 +307,40 @@ minikube stop -p multinode-demo
 
 Ref: https://minikube.sigs.k8s.io/docs/tutorials/multi_node/
 
+## 24-06-2022
+- CRUD operations 
+```
+Create, Read, Update[Modify],Delete.
+```
+CREATE: 
+```
+kubecrl APPLY -> To create a resource in kubernetes
+
+Ex:
+kubectl run nginx --image=nginx
+kubectl apply -f YAML
+```
+READ: 
+```
+kubectl get <RESOURCE NAME>
+kubectl describe <RESOURCE NAME>
+
+
+Ex: 
+kubectl describe pod PODNAME
+kubectl get pod PODNAME
+```
+UPDATE: 
+```
+kubectl edit <RESOURCE NAME>
+```
+DELETE: 
+```
+kubectl delete <RESOURCE NAME> 
+
+Ex: kubectl delete pod PODNAME
+```
+
+- What is a [pod](https://kubernetes.io/docs/concepts/workloads/pods/)
+- How we can use pods to manage containers.
+- How can we create a PODs with multi containers. 
