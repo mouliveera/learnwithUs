@@ -1,0 +1,12 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: docker-demo
+  labels:
+    env: red
+spec:
+  containers:
+    - name: samba-demo
+      image: donnice849/ubuntu-sleeper

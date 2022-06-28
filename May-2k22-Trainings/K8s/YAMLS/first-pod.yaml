@@ -1,0 +1,12 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: naresh-demo
+  labels:
+    env: green
+spec:
+  containers:
+    - name: samba-demo
+      image: nginx
