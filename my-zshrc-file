@@ -122,6 +122,7 @@ alias kpu='kubectl --context prod-us-pri -n prod-us'
 alias kpum='kubectl --context prod-us-pri -n monitor'
 alias kpe='kubectl --context prod-eu-pri -n prod-eu'
 alias kpem='kubectl --context prod-eu-pri -n monitor'
+alias kopsm='kubectl --context ops -n monitor'
 alias kqa='kubectl --context qa -n qa'
 alias kqam='kubectl --context qa -n monitor'
 alias kdev='kubectl --context dev -n dev'
@@ -141,8 +142,18 @@ alias kpei="kubectl get pods --context prod-eu-pri -n prod-eu -l app=r4e -o=json
 alias kpu-sql="kpu exec -it deploy/cloudsql-app -- bash"
 alias kpe-sql="kpe exec -it deploy/cloudsql-app -- bash"
 ###Prometheus###
+alias ke2e-prom='ke2e port-forward svc/prometheus-prometheus 9090 -n monitor'
+alias kdev-prom='kdev port-forward svc/prometheus-prometheus 9090 -n monitor'
+alias kqa-prom='kqa port-forward svc/prometheus-prometheus 9090 -n monitor'
 alias kpu-prom='kubectl --context prod-us-pri port-forward svc/prometheus-prometheus 9090 -n monitor'
 alias kpe-prom='kubectl --context prod-eu-pri port-forward svc/prometheus-prometheus 9090 -n monitor'
+###AlertManager###
+alias ke2e-alert='ke2e port-forward svc/prometheus-alertmanager 9093 -n monitor'
+alias kdev-alert='kdev port-forward svc/prometheus-alertmanager 9093 -n monitor'
+alias kqa-alert='kqa port-forward svc/prometheus-alertmanager 9093 -n monitor'
+alias kpu-alert='kpu port-forward svc/prometheus-alertmanager 9093 -n monitor'
+alias kpe-alert='kpe port-forward svc/prometheus-alertmanager 9093 -n monitor'
+
 ###RabbitMQ###
 alias kpu-rmq='kpu port-forward svc/rabbitmq-prod-us-pri 15672'
 alias kpe-rmq='kpe port-forward svc/rabbitmq-prod-eu-pri 15672'
@@ -172,3 +183,123 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 OPS="/Users/mveera/Repositories/Reputation/ops"
 export OPS=/Users/mveera/Repositories/Reputation/ops
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+
+#Redis Q clean
+#kpu-redis-q-clean-backend ()
+#	{
+#		echo "------Redis memCahe backEnd------"
+#		echo "Get the key availability";
+#		eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 keys $1 2> /dev/null;
+#		echo "Get the Queue: $1 length"
+##		kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 llen $Q 2> /dev/null
+#		eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 llen $1 2> /dev/null
+#		echo "Shall we proceed to delete the queue[yes/no]: \c"
+#		read res
+#		if [[ $res == "yes" ]]; then
+#			echo "Deleting the Queue: $1";
+#			eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 del $1 2> /dev/null
+#			echo "Length of the $1 after deletion"
+#			eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 llen $1 2> /dev/null
+#		else
+#			echo "No further action";
+#		fi
+#		echo "----------------------------------"
+#	}
+
+kpu-redis-q-clean-frontend ()
+        {
+		if [[ -z $1 ]];
+		then
+			echo "USAGE: kpu-redis-q-clean-frontend <QUEUE NAME>";
+		else
+			echo "------Redis memCahe frontEnd------"
+			echo "Get the key availability";
+			eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.28 -p 6379 keys $1 2> /dev/null;
+			echo "Get the Queue: $1 length";
+			eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.28 -p 6379 llen $1 2> /dev/null
+			echo "Shall we proceed to delete the queue[yes/no]: \c"
+			read res
+			if [[ $res == "yes" ]]; then
+				echo "Deleting the Queue: $1";
+				eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.28 -p 6379 del $1 2> /dev/null
+				echo "Length of the $1 after deletion"
+				eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.28 -p 6379 llen $1 2> /dev/null
+			else
+				echo "No further action";
+			fi
+			echo "----------------------------------"
+		fi
+        }
+
+
+kpu-redis-q-clean-backend ()
+        {
+                if [[ -z $1 ]];
+                then
+                        echo "USAGE: kpu-redis-q-clean-backend <QUEUE NAME>";
+                else
+                        echo "------Redis memCahe backEnd------"
+                        echo "Get the key availability";
+                        eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 keys $1 2> /dev/null;
+                        echo "Get the Queue: $1 length";
+                        eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 llen $1 2> /dev/null
+                        echo "Shall we proceed to delete the queue[yes/no]: \c"
+                        read res
+                        if [[ $res == "yes" ]]; then
+                                echo "Deleting the Queue: $1";
+                                eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 del $1 2> /dev/null
+                                echo "Length of the $1 after deletion"
+                                eval kpu exec -it deploy/cloudsql-app --  redis-cli -h 10.209.0.12 -p 6379 llen $1 2> /dev/null
+                        else
+                                echo "No further action";
+                        fi
+                        echo "----------------------------------"
+                fi
+        }
+
+
+# Tainted nodes
+ke2e-taints () {
+	ke2e get nodes -o go-template='{{range $item := .items}}{{with $nodename := $item.metadata.name}}{{range $taint := $item.spec.taints}}{{if (eq $taint.effect "NoSchedule")}}{{printf "%s\n" $nodename}}{{end}}{{end}}{{end}}{{end}}'
+}
+
+kdev-taint () {
+	kdev get nodes -o go-template='{{range $item := .items}}{{with $nodename := $item.metadata.name}}{{range $taint := $item.spec.taints}}{{if (eq $taint.effect "NoSchedule")}}{{printf "%s\n" $nodename}}{{end}}{{end}}{{end}}{{end}}'
+}
+
+kqa-taint () {
+	kqa get nodes -o go-template='{{range $item := .items}}{{with $nodename := $item.metadata.name}}{{range $taint := $item.spec.taints}}{{if (eq $taint.effect "NoSchedule")}}{{printf "%s\n" $nodename}}{{end}}{{end}}{{end}}{{end}}'
+}
+
+kpu-taint () {
+	kpu get nodes -o go-template='{{range $item := .items}}{{with $nodename := $item.metadata.name}}{{range $taint := $item.spec.taints}}{{if (eq $taint.effect "NoSchedule")}}{{printf "%s\n" $nodename}}{{end}}{{end}}{{end}}{{end}}'
+}
+
+kpe-taint () {
+	kpe get nodes -o go-template='{{range $item := .items}}{{with $nodename := $item.metadata.name}}{{range $taint := $item.spec.taints}}{{if (eq $taint.effect "NoSchedule")}}{{printf "%s\n" $nodename}}{{end}}{{end}}{{end}}{{end}}'
+}
+
+USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+
+# K9s
+k9e2e () {
+	k9s --context e2e -n e2e
+}
+
+k9dev () {
+	k9s --context dev -n dev
+}
+
+k9qa () {
+	k9s --context qa -n qa
+}
+
+k9pu () {
+	k9s --context prod-us-pri -n prod-us
+}
+
+k9pe () {
+	k9s --context prod-eu-pri -n prod-eu
+}
