@@ -344,3 +344,15 @@ Ex: kubectl delete pod PODNAME
 - What is a [pod](https://kubernetes.io/docs/concepts/workloads/pods/)
 - How we can use pods to manage containers.
 - How can we create a PODs with multi containers. 
+
+## 28-06-2022
+- What are liveness and readinessProbes
+- Why do we need to use them.
+- [LINK](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+- How can we set CONTEXT and NAMESPACE using kubectl commands
+```
+kubectl config set-context <CLUSTER> --namespace <NAMESPACE>
+
+Ex:
+kubectl config set-context docker-desktop --namespace naresh
+```

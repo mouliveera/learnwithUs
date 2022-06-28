@@ -1,0 +1,22 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: liveness-demo-4
+
+spec:
+  containers:
+    - name: liveness-demo
+      image: nginx
+      livenessProbe:
+        exec:
+          command:
+            - cat
+            - /usr/share/nginx/html/index.html
+      
+
+#      livenessProbe:
+#        httpGet:
+#          path: /mouli
+#          port: 80
