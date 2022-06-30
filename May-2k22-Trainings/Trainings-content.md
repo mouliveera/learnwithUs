@@ -356,3 +356,11 @@ kubectl config set-context <CLUSTER> --namespace <NAMESPACE>
 Ex:
 kubectl config set-context docker-desktop --namespace naresh
 ```
+
+## 29-06-2022
+#### ReplicaSet
+- What is a replicaSet
+- A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time
+- How they manage PODS.
+- Ref: [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/#:~:text=A%20ReplicaSet%20is%20defined%20with,the%20number%20of%20replicas%20criteria.)
+
