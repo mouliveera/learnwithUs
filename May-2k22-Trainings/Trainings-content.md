@@ -364,3 +364,9 @@ kubectl config set-context docker-desktop --namespace naresh
 - How they manage PODS.
 - Ref: [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/#:~:text=A%20ReplicaSet%20is%20defined%20with,the%20number%20of%20replicas%20criteria.)
 
+## 30-06-2022
+#### Deployment
+- A Kubernetes Deployment is used to tell Kubernetes how to create or modify instances of the pods that hold a containerized application. Deployments can scale the number of replica pods, enable rollout of updated code in a controlled manner, or roll back to an earlier deployment version if necessary. 
+
+- Ref [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- Refer the YAML's in k8s directory 
