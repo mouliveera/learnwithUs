@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: first-replicaset
+  namespace: naresh
+  labels:
+    env: red
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: green
+  template:
+    metadata:
+      name: naresh-demo
+      labels:
+        env: green
+    spec:
+      containers:
+      - name: samba-demo
+        image: nginx
