@@ -1,14 +1,15 @@
 apiVersion: apps/v1
 
-kind: ReplicaSet
+kind: Deployment
 
 metadata:
-  name: first-replicaset
-  namespace: naresh
+  name: demo-deploy
   labels:
-    env: red
+    env: green
+    app: nginx
+
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       env: green
