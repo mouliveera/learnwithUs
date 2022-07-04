@@ -370,3 +370,15 @@ kubectl config set-context docker-desktop --namespace naresh
 
 - Ref [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 - Refer the YAML's in k8s directory 
+
+## 04-07-2022
+- How can configure kubernetes cluster to our local machine.
+- [GCP](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl)
+- [AWS](https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-connection/)
+- How we use the deployment in realTime
+
+Task:
+- Create 2 deployments in different namespaces.
+- Crash one of the deployments with typo or however your want.
+- List the pods, which are failing and in which namespace.
+- Troubleshoot why they are failing and share the reason for faulure.
