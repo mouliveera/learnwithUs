@@ -364,3 +364,21 @@ kubectl config set-context docker-desktop --namespace naresh
 - How they manage PODS.
 - Ref: [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/#:~:text=A%20ReplicaSet%20is%20defined%20with,the%20number%20of%20replicas%20criteria.)
 
+## 30-06-2022
+#### Deployment
+- A Kubernetes Deployment is used to tell Kubernetes how to create or modify instances of the pods that hold a containerized application. Deployments can scale the number of replica pods, enable rollout of updated code in a controlled manner, or roll back to an earlier deployment version if necessary. 
+
+- Ref [LINK](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- Refer the YAML's in k8s directory 
+
+## 04-07-2022
+- How can configure kubernetes cluster to our local machine.
+- [GCP](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl)
+- [AWS](https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-connection/)
+- How we use the deployment in realTime
+
+Task:
+- Create 2 deployments in different namespaces.
+- Crash one of the deployments with typo or however your want.
+- List the pods, which are failing and in which namespace.
+- Troubleshoot why they are failing and share the reason for faulure.
