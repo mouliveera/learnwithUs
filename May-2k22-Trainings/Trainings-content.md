@@ -382,3 +382,41 @@ Task:
 - Crash one of the deployments with typo or however your want.
 - List the pods, which are failing and in which namespace.
 - Troubleshoot why they are failing and share the reason for faulure.
+
+## 05-07-2022
+- What are initContainers.
+- specialized containers that run before app containers in a Pod. 
+- Init containers can contain utilities or setup scripts not present in an app image.
+- To avoid load on actual containers, we use initContainers in the pod.
+- Here is an example to create a initContainer.
+- It create a folder `trainings` and a file `test.txt` before the acual container `my-container` start and mounts on `trainings`
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-test-pod
+spec:
+  volumes:
+  - name: trainings
+    emptyDir: {}
+  initContainers:
+  - name: init-container
+    image: busybox:1.28
+    command: ['sh', '-c', 'mkdir /trainings; touch /trainings/test.txt']
+    volumeMounts:
+    - name: mydir
+      mountPath: /trainings
+  containers:
+  - name: my-container
+    image: alpine
+    command: ['sh', '-c', 'if [ -f /trainings/test.txt ]; then echo "hello team, this is a test file" > /trainings/test.txt; sleep 99999; fi']
+    volumeMounts:
+    - name: mydir
+      mountPath: /trainings
+```
+
+- Login to pod and check for status
+```
+kubectl exec -it init-test-pod -c my-container -n demo -- cat /trainings/test.txt
+hello team, this is a test file
+```
