@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-test-pod
+spec:
+  volumes:
+  - name: mydir
+    emptyDir: {}
+  initContainers:
+  - name: init-container
+    image: busybox:1.28
+    command: ['sh', '-c', 'mkdir /trainings; touch /trainings/test.txt']
+    volumeMounts:
+    - name: mydir
+      mountPath: /trainings
+  containers:
+  - name: my-container
+    image: alpine
+    command: ['sh', '-c', 'if [ -f /trainings/test.txt ]; then echo "hello team, this is a test file" > /trainings/test.txt; sleep 99999; fi']
+    volumeMounts:
+    - name: mydir
+      mountPath: /trainings
