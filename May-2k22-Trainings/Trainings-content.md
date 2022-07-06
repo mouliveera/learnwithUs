@@ -420,3 +420,10 @@ spec:
 kubectl exec -it init-test-pod -c my-container -n demo -- cat /trainings/test.txt
 hello team, this is a test file
 ```
+
+## 06-07-2022
+- (InitContainers)[https://kubernetes.io/docs/concepts/workloads/pods/init-containers/]
+- (StatefulSets)[https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/]
+- StatefulSets are intended to be used with stateful applications
+- (DeamonSets)[https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/]
+- A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
