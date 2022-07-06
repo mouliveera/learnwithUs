@@ -7,18 +7,19 @@ spec:
   - name: mydir
     emptyDir: {}
   initContainers:
-  - name: init-container-2
+  - name: init-container
     image: busybox:1.28
-    #command: ['sh', '-c', 'mkdir /train']
-    command: ['sleep 10']
+    command: ['sh', '-c', 'mkdir /trainings; touch /trainings/test.txt']
     volumeMounts:
     - name: mydir
-      mountPath: /train
+      mountPath: /trainings
   containers:
   - name: my-container
     image: alpine
     command:
-    - "for i in {1..100}; do echo 'Creating file ${i}';echo '-------------'; touch /train/file-${i}; sleep 10;done"
+    - sh
+    - "-c"
+    - "a=0; while [ $a -lt 10 ]; do echo 'Creating file $a' ;echo '-------------'; touch /train/file-$a; max=$(expr $a + 1); done; sleep 99999"
     volumeMounts:
     - name: mydir
       mountPath: /train
