@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-pod-2
+spec:
+  volumes:
+  - name: mydir
+    emptyDir: {}
+  initContainers:
+  - name: init-container-2
+    image: busybox:1.28
+    #command: ['sh', '-c', 'mkdir /train']
+    command: ['sleep 10']
+    volumeMounts:
+    - name: mydir
+      mountPath: /train
+  containers:
+  - name: my-container
+    image: alpine
+    command:
+    - "for i in {1..100}; do echo 'Creating file ${i}';echo '-------------'; touch /train/file-${i}; sleep 10;done"
+    volumeMounts:
+    - name: mydir
+      mountPath: /train
