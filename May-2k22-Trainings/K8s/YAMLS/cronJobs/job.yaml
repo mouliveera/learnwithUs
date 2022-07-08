@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello-job
+        image: busybox:1.28
+        imagePullPolicy: IfNotPresent
+        command:
+        - /bin/sh
+        - -c
+        - date; echo Hello its a JOB
+      restartPolicy: OnFailure

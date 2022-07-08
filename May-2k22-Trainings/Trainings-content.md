@@ -427,3 +427,27 @@ hello team, this is a test file
 - StatefulSets are intended to be used with stateful applications
 - (DeamonSets)[https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/]
 - A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
+## 07-07-2022
+- What is a (cronJob)[https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/]
+- CronJobs are meant for performing regular scheduled actions such as backups, report generation, and so on.
+- How to create cronJobs and Jobs.
+- How can we create manual job using a cronJob.
+```
+kubectl get cj -n demo             
+NAME        SCHEDULE       SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+demo-cron   */10 * * * *   False     0        2m9s            14m
+
+---
+kubectl create job manual-demo-job --from=cronjob/demo-cron -n demo --context docker-desktop
+job.batch/manual-demo-job created
+
+---
+kubectl get job -n demo
+NAME                 COMPLETIONS   DURATION   AGE
+demo-cron-27619438   1/1           4s         21m
+demo-cron-27619440   1/1           4s         19m
+demo-cron-27619450   1/1           3s         9m44s
+demo-job             1/1           4s         8m21s
+manual-demo-job      1/1           4s         3m45s
+```
