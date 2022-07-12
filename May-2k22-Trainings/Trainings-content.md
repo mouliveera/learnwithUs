@@ -452,3 +452,16 @@ demo-job             1/1           4s         8m21s
 manual-demo-job      1/1           4s         3m45s
 ```
 - What are services.
+
+## 12-07-2022
+- [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/)
+  They are accessible with in the cluster, you can reach them by port-forwarding.
+- [LoadBalancer](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/)
+  We have to create LB on each service which creates cost impact.
+- How kubernetes manages the [DNS records](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
+
+Commands:
+```
+kubectl get services -n demo
+kubectl describe service <SERVICE NAME> -n demo
+```
