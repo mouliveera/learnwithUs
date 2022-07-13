@@ -465,3 +465,19 @@ Commands:
 kubectl get services -n demo
 kubectl describe service <SERVICE NAME> -n demo
 ```
+
+## 13-07-2022
+- https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+- GuestBook
+- Enable ingress on minikube: it creates a pod in ingress-nginx namespace. the pod manages the ingressRules.
+```
+ minikube addons enable ingress  
+```
+- Run below commands to apply ingress and get the ingress details.
+```
+kubectl apply -f ingress.yaml
+kubectl get ingress
+kubectl describe ingress gbook-ingress
+```
+- Open web browser and access the IP it generated
+
