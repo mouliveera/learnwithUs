@@ -1,8 +1,11 @@
-## Setup mongoDB replication
+## Setup MongoDB replication
 - We are creating a headless service
 - We are creating mongodb replicasets of 3 pods.
-
-## mongoConsol
+```
+k apply -f  mongodb-statefulset.yaml
+k apply -f  mongodb-service.yaml
+```
+#### mongoConsol
 - Once you login to the pod and then to mongo console. We cannot see the replications as we have not set it yet.
 ```
 kubectl exec -it mongod-0 -n mongo -- mongo
