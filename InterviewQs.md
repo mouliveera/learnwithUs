@@ -880,3 +880,50 @@ TRUNCATE TABLE Table_name;
 Ex:
 truncate table student
 ```
+
+#### Naresh
+A year back I was assigned to a project where Kubernetes and docker are being used. 
+
+I got an opportunity to learn Kubernetes and Docker.
+
+We are using Kubernetes for our microservices and for few infrastructure components that are used for one of the client.
+
+#### Coming to Docker:
+- Have a good understanding of docker.
+- How to create the images and containers.
+- How to clean them, when they are not being used 
+- Have good understanding of docker-compose file and docker services.
+
+#### Coming to Kubernetes:
+We are using deployment for microservices which are stateless and we are using statefulsets for our database and other Infra components which are stateful applications.
+To deploy PODS and services to Kubernetes, we are using two kinds of approaches 
+1.  imperative and  
+2. declarative Approach.
+
+- We create some YAML files  to deploy the PODS  and services. Also other kubernetes components.
+
+- We maintain our infrastructure code in our GitHub repository. I have a good understating of GitHub branching strategy.
+- We use feature branch strategy to commit our changes to gitHub and get the pear approvals and then merge to MASTER branch.
+
+- We recently introduced `Helm` in our environment to package the complete Kubernetes component and deploy. 
+
+
+###### DO NOT READ DURING THE CALL: JUST FOR YOUR REFERENCE
+#### Useful commands:
+- To crete helm chart
+```Helm create <reponame>```
+- Install helm charts
+```Helm install <CHART NAME> <space> <CHARTS>```
+- List installed helm charts
+```Helm list –kube-context <CLUSTER NAME> -n <NAMESPACE> |grep <PACKAGE NAME>```
+- Remove helm package:
+```Helm uninstall <PACKAGE NAME> –kube-context <CLUSTER NAME> -n <NAMESPACE>```
+- Helm rollback a package:
+```helm rollback <RELEASE> [REVISION]```
+
+
+
+
+
+
+
