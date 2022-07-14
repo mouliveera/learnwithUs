@@ -906,7 +906,10 @@ To deploy PODS and services to Kubernetes, we are using two kinds of approaches
 - We use feature branch strategy to commit our changes to gitHub and get the pear approvals and then merge to MASTER branch.
 
 - We recently introduced `Helm` in our environment to package the complete Kubernetes component and deploy. 
-
+- We are using prometheus for our kubernetes resource monitoring.
+- We installed prometheus using helm stable charts and created some alert rules in alertmanager to send notifcations to our email and teams.
+- When any pod gets creashes due to app issues or OOM issues, we get notifications.
+- When we get a notifcations, we start troubleshooting when they get failed and fix them accordigly.
 
 ###### DO NOT READ DURING THE CALL: JUST FOR YOUR REFERENCE
 #### Useful commands:
