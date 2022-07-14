@@ -3,15 +3,26 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gbook-ingress
+  namespace: gbook
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - host: "trainings.com"
+  - host: trainings.com
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - pathType: Exact
+        path: /guest
         backend:
           service:
             name: frontend
             port:
               number: 80
+      - pathType: Exact
+        path: /node
+        backend:
+          service:
+            name: nodeport-service
+            port:
+              number: 8080
