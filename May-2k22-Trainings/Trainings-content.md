@@ -481,3 +481,14 @@ kubectl describe ingress gbook-ingress
 ```
 - Open web browser and access the IP it generated
 
+## 14-07-2022
+#### INGRESS:
+
+Its all working good now:
+Goto:
+May-2k22-Trainings/K8s/YAMLS/gbook
+
+- Apply the yamls
+- sudo echo "<IngressIp> trainings.com" >> /etc/hosts
+- http://trainings.com/guest
+- http://trainings.com/node
