@@ -492,3 +492,15 @@ May-2k22-Trainings/K8s/YAMLS/gbook
 - sudo echo "<IngressIp> trainings.com" >> /etc/hosts
 - http://trainings.com/guest
 - http://trainings.com/node
+
+## 15-07-2022
+#### ConfigMaps
+- What are (configMaps)[https://kubernetes.io/docs/concepts/configuration/configmap/]
+- Check the folder for demo YAML: learn/May-2k22-Trainings/K8s/YAMLS/configMaps
+
+#### Secrets
+- (Secrets)[https://kubernetes.io/docs/concepts/configuration/secret/]
+- Check the folder for demo YAML: learn/May-2k22-Trainings/K8s/YAMLS/secrets
+
+- Check what is the difference between configmaps and secrets.
+- Where do we use them.
