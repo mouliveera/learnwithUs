@@ -504,3 +504,14 @@ May-2k22-Trainings/K8s/YAMLS/gbook
 
 - Check what is the difference between configmaps and secrets.
 - Where do we use them.
+
+## 16-07-2022
+#### [EmptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+#### [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+#### PV and PVC
+
+Please refer documentation for more details. YAML's are listed in k8's folder.
+
+Thanks
+
+# END

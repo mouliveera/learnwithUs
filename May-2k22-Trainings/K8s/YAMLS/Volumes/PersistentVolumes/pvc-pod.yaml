@@ -1,0 +1,16 @@
+## Check why the PV showing wrong size
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pv-pod
+spec:
+    containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+      - mountPath: /demo-trainings
+        name: demo-pv
+    volumes:
+    - name: demo-pv
+      persistentVolumeClaim:
+        claimName: demo-pvc
