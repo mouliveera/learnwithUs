@@ -111,10 +111,7 @@ Ans:
 - AWS CloudFront is a CDN service in AWS.
 - It helps keep the static data available at AWS edge data centers, so that data and application pages are accessible with faster response.
 
-
-
-
-
+---
 ## ANSIBLE:
 
 1. What is ANSIBLE
