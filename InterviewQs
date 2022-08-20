@@ -105,7 +105,6 @@ Ans:
 - We can monitor and create alerting to our mobiles/emails/Slack channels by usaing AWS SNS[Simple Notification Service] service.
 - We can monitor Ec2 instance health. Whether instance is UP or Down etc.
 
-
 16. CloudFront
 Ans:
 - AWS CloudFront is a CDN service in AWS.
