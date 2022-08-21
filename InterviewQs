@@ -132,3 +132,6 @@ Ans:
 4. How do you run dry run in ANSIBLE
 Ans:
 - We can use --check option to run dryRun in Ansible PlayBook
+
+---
+- Test A
