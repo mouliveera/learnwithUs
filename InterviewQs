@@ -134,5 +134,6 @@ Ans:
 - We can use --check option to run dryRun in Ansible PlayBook
 
 ---
-- Test B
+
 - Test A
+- Test B
