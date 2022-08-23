@@ -65,4 +65,83 @@ kubectl taint node <NODENAME> value:NoSchedule
 - How to create and mount them on a POD/DEPLOYMENT
 
 
+#### How to apply the configMap changes withOut restarting pods.
+- We can use few annotations to do that.
+- Add below annotations at metadata to configMap
+```
+  annotations:
+    reloader.stakater.com/match: "true"
+```
+- Add below annotations at metadata to deployment
+```
+  annotations:
+    reloader.stakater.com/search: "true"
+```
+- Reference yaml below
+- Example:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    app: nginx-test
+  annotations:
+    reloader.stakater.com/search: "true"
+spec:
+### REPLICASET SPEC ####
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-test
+### POD SPEC ###
+  template:
+    metadata:
+      name: mouli
+      labels:
+        app: nginx-test
+
+    spec:
+      containers:
+        - name: chaitu
+          image: nginx
+          volumeMounts:
+          - name: firstdeploy-cm
+            mountPath: /usr/share/nginx/html/
+      volumes:
+      - name: firstdeploy-cm
+        configMap:
+          name: firstdeploy-cm
+
+---
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: firstdeploy-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <h1>This is a TEST NGINX page</h1>
+
+    <p>By MouliDeepika</p>
+
+    </body>
+    </html>
+
+```
+- Do port-forward to the deploy
+```
+k port-forward deploy/first-deployment -n demo 8088:80
+```
+- Open browser and access https://127.0.0.1:8088
+- Make changes to configmap YAML and APPLY.
+- reload webpage [127.0.0.1:8088]
 

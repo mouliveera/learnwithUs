@@ -4,6 +4,8 @@ kind: ConfigMap
 
 metadata:
   name: firstdeploy-cm
+  annotations:
+    reloader.stakater.com/match: "true"
 
 data:
   index.html: |
@@ -13,7 +15,7 @@ data:
 
     <h1>This is a TEST NGINX page</h1>
 
-    <p>By Chaitanya.</p>
+    <p>By MouliDeepika</p>
 
     </body>
     </html>

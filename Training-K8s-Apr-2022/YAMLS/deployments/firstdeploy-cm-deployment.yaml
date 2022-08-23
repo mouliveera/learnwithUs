@@ -6,6 +6,8 @@ metadata:
   name: first-deployment
   labels:
     app: nginx-test
+  annotations:
+    reloader.stakater.com/search: "true"
 
 spec:
 ### REPLICASET SPEC ####
