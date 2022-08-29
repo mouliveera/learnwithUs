@@ -50,15 +50,19 @@ gcloud container clusters resize sample-cluster --num-nodes=2
 
 ## Recent Interview Q's:
 - block connectivity between 2 pods in same namespace
-  Ans: NetworkPolicy helps us to block egress on pod/container level.
+  
+  ```NetworkPolicy helps us to block egress on pod/container level.```
 
 - reload configmap with out restarting pod
-  Ans: We can have stakater reloaders 
+  
+  ```We can have stakater reloaders ```
   
 - Prometheus memory stats and HA
-  Ans: Prometheus sould be configured to store fewer timeSeries, by scripting fewere metrics or by attaching fewer LABELS to timeSerieses.
+  
+  ```Prometheus sould be configured to store fewer timeSeries, by scripting fewere metrics or by attaching fewer LABELS to timeSerieses.```
 
 - Dont kill the pod if there are any connections on it. wait for it
-  Ans: Have preStop lifeCycle hook to achieve this.
+  
+  ```Have preStop lifeCycle hook to achieve this.```
 
 
