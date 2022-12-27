@@ -1,8 +1,7 @@
 # Python
 
-
-Text Source: https://automatetheboringstuff.com
-YouTube: https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
+- Text Source: https://automatetheboringstuff.com
+- YouTube: https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
 
 # Basics
 ## Print:
