@@ -71,3 +71,6 @@ print(num_1 == num_2)
 - Sets eliminates the duplicates.
 - We can check if the item is in the set or no
 - We can use intersection method to view the common items.
+
+## Dictionaries
+- Dictionaries are key, value pairs.
