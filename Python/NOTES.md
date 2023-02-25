@@ -73,3 +73,26 @@ print(num_1 == num_2)
 
 ## Dictionaries
 - Dictionaries are key, value pairs.
+
+## If conditions
+- we use the if statement to run a block code only when a certain condition is met.
+
+## Loops - for and while
+- Loop is designed to repeatedly execute a code block 
+- Python offers 3 choices for running the loops. The basic functionality of all the techniques is the same, although the syntax and the amount of time required for checking the condition differ.
+- while, for and nested
+- Syntax of the for Loop
+```
+for value in sequence:  
+    { code block }  
+```
+
+## Functions
+- Functions are defined with "def" keyword.
+- We can use "pass" to skip the function empty.
+```
+def function_name():
+    pass
+function_name() #To call function
+```
+- Function all helpful to use them repeated way in different places in the code.
