@@ -78,13 +78,13 @@ print(num_1 == num_2)
 - we use the if statement to run a block code only when a certain condition is met.
 
 ## Loops - for and while
-- Loop is designed to repeatedly execute a code block 
+- Loop is designed to repeatedly execute a code block
 - Python offers 3 choices for running the loops. The basic functionality of all the techniques is the same, although the syntax and the amount of time required for checking the condition differ.
 - while, for and nested
 - Syntax of the for Loop
 ```
-for value in sequence:  
-    { code block }  
+for value in sequence:
+    { code block }
 ```
 
 ## Functions
@@ -96,3 +96,16 @@ def function_name():
 function_name() #To call function
 ```
 - Function all helpful to use them repeated way in different places in the code.
+
+## Import modules
+- In Python, the import statement is used to import modules, which are pre-written code files that contain functions, classes, and variables that can be used in your Python programs.
+
+To import a module, you use the import keyword followed by the name of the module.
+- To list the available submodules in a module, you can use the dir() function in Python. Here's an example:
+
+```
+import math
+
+print(dir(math))
+```
+Note that not all modules have submodules, so you may get an empty list if you call dir() on a module that doesn't have any submodules or objects defined.
