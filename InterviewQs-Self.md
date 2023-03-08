@@ -65,4 +65,23 @@ gcloud container clusters resize sample-cluster --num-nodes=2
   
   ```Have preStop lifeCycle hook to achieve this.```
 
+- How to reverse a commit and push other changes
+- print a number from list of lines.
 
+mobile.txt:
+bdfhabsdfbas9-9-9-9-9-9-9-9hsbdhjabcjsd
+vdhvhsvdghsdg d 778-888-6543ckjasdcbjsdcjbd
+987654-77777bdjbCBJSDSCDS C SM
+dvcvwDVCHJWC NW CDNWDNMC NMWDNCM DMNC MN
+
+Script:
+```
+❯ while read -r line; do echo $line |grep -o '[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}\|[0-9]\{5\}-[0-9]\{5\}\|[0-9]\{1\}-.*[0-9]\{1\}'|sed 's/-//g'; done < mobile.txt
+99999999
+7788886543
+8765477777
+
+❯ echo "kjbDFKJbfjd10.3.4.5jjbsdba" |grep -o '[0-9]\{2\}.*.[0-9]\{1\}'
+10.3.4.5
+```
+---

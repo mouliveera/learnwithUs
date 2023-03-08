@@ -925,6 +925,11 @@ To deploy PODS and services to Kubernetes, we are using two kinds of approaches
 ```helm rollback <RELEASE> [REVISION]```
 
 
+#### Work notes
+- How can we get any helm related changes to a slackChannel
+https://github.com/RoadieHQ/kubewise
+
+
 
 
 
