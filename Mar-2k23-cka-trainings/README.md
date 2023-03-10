@@ -23,3 +23,36 @@ Kubernetes is a complex system that comprises several components working togethe
 **Container runtime:** The container runtime, such as Docker or Containerd, is responsible for starting and stopping containers based on the pod specifications.
 
 **Controller manager:** The controller manager is responsible for running Kubernetes controllers, which are processes that monitor the state of the Kubernetes cluster and make changes to bring it to the desired state.
+
+## 9 Mar 2023
+- Created minikube 2 node cluster
+```
+minikube start --nodes 2 -p multinode-minikube
+```
+- Validated cluster and nodes.
+```
+kubectl get nodes
+```
+- [Kubectx](https://formulae.brew.sh/formula/kubectx): Its a command line tool to switch clusters.
+- How to list clusters configured in our local machine.
+```
+kubectl config get-contexts
+```
+- Rename cluster name as per our convenience.
+```
+kubectl config rename-context  <CLUSTER NAME> <RENAME>
+Ex:
+kubectl config rename-context  multinode-minikube demo
+```
+- Using `kubectl` we can do CRUD[Create, Read, Update[Modify],Delete] operations.
+- Imperative[Command line] and Declarative[YAML] approaches to create K8s objects.
+```
+# Imperative Example
+kubectl run demo-pod --image=nginx
+
+# To view the YAML for above commands
+kubectl run demo-pod --image=nginx --dry-run=client -o yaml
+
+- dry-run: Test run
+- o: output
+```
