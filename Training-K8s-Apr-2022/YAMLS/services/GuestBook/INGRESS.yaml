@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minikube-ingress
+  namespace: guest
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: "guest.mouliveera.com"
+      http:
+        paths:
+          - path: "/guest"
+            pathType: Prefix
+            backend:
+              serviceName: frontend
+              servicePort: 80
+#              service:
+#                name: frontend
+#                port:
+#                  number: 80

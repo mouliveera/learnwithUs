@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sai-test-pod
+spec:
+   containers:
+   - name: demo-container
+     image: redis
+   - name: mouli
+     image: nginx
