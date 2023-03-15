@@ -67,3 +67,11 @@ pipeline {
     }
  }   
  ```
+
+PROD-US: Apply zone topology limitations on all ES7 clusters
+Jira: https://reputation.atlassian.net/browse/OPS-16959
+
+Doc: https://reputation.atlassian.net/wiki/spaces/ENG/pages/2531950654/Apply+zone+topology+limitations+on+all+ES7+clusters
+
+Run the below test cases after the changes:
+Jyothi will share the list.
