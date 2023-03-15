@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod
+spec:
+  containers:
+    - name: nginx-ubuntu
+      image: nginx-ubuntu:1.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+
+# Command line
+# kubectl run nginx-test --image=demo-nginx-ubuntu:1.0 -n demo --image-pull-policy=IfNotPresent
+# pod/nginx-test created
