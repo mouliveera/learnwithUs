@@ -56,3 +56,32 @@ kubectl run demo-pod --image=nginx --dry-run=client -o yaml
 - dry-run: Test run
 - o: output
 ```
+## 15 Mar 2023
+## Namespaces
+In Kubernetes, a namespace is a way to logically divide and isolate a cluster's resources. Each namespace provides a scope for Kubernetes objects like pods, services, and deployments, and helps to avoid naming collisions and provide better organization of resources within a cluster.
+
+Some examples of namespaces in Kubernetes are:
+
+- default: This is the default namespace that Kubernetes creates for all resources that don't have a specified namespace. It's recommended to create new namespaces for different environments like development, testing, and production, instead of using the default namespace.
+
+- kube-system: This namespace is reserved for Kubernetes system resources like kube-dns, kube-proxy, and other system-level services that are critical for the operation of the cluster.
+
+#### Creating a Namespace:
+You can create a namespace in Kubernetes by using the kubectl create command with the namespace resource type, followed by the name of the namespace you want to create.
+
+For example, to create a namespace called "development", you can run the following command:
+```
+kubectl create namespace development
+```
+This will create a new namespace called "development" in your Kubernetes cluster.
+
+#### Listing Namespaces:
+You can list all the namespaces in your Kubernetes cluster by using the kubectl get command with the namespace resource type.
+```
+kubectl get namespaces
+```
+
+You can also use the kubectl describe command to get more detailed information about a specific namespace. For example, to get detailed information about the "development" namespace, you can run the following command:
+```
+kubectl describe namespace development
+```
