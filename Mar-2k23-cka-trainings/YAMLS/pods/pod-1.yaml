@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    req: sai
+  name: demo-test-pod
+spec:
+  containers:
+  - image: nginx
+    name: nginx-test
