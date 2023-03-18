@@ -140,3 +140,29 @@ spec:
 
 `NOTE: The main difference between a ReplicaSet and a Deployment in Kubernetes is that a Deployment provides declarative updates to manage replicas of your application and is responsible for managing the overall lifecycle of your application, while a ReplicaSet is focused on maintaining a specific number of replicas for a given pod template.`
 
+## 18 Mar 2023
+`kubectl apply`: This command applies a configuration file to the Kubernetes cluster. It can be used to create, update, or delete resources in the cluster.
+
+`kubectl get`: This command is used to retrieve information about Kubernetes resources.
+For example, *kubectl get pods* will retrieve a list of all running pods in the cluster.
+
+`kubectl describe`: This command provides detailed information about a Kubernetes resource.
+For example, *kubectl describe pod <pod-name> -n namespace* will provide detailed information about a specific pod.
+
+`kubectl logs`: This command retrieves logs from a container running in a pod.
+For example, *kubectl logs <pod-name> -n namespace* will retrieve logs from the first container in a pod.
+
+`kubectl exec`: This command is used to execute a command in a running container.
+For example, *kubectl exec -it <pod-name> -n namespace -- <command>* will execute a command in the first container in a pod.
+
+`kubectl delete`: This command is used to delete a Kubernetes resource.
+For example, *kubectl delete pod <pod-name> -n namespace* will delete a specific pod.
+
+`kubectl create`: This command is used to create Kubernetes resources from a YAML or JSON file.
+For example, *kubectl create -f <file-name>.yaml -n namespace* will create resources defined in the specified YAML file.
+
+## What we discussed
+#### Where do we use the deployment pods
+Here are some reasons why Deployments are commonly used for stateless applications:
+`Easy scaling:` Deployments allow you to easily scale the number of replicas (pods) that are running your application. This is particularly useful for stateless applications because they can handle multiple replicas of the same pod without any data conflicts or consistency issues.
+`Pod identity:` Pods managed by a Deployment are anonymous and interchangeable. This means that if a pod fails, it can be replaced by a new pod with new name and IP without any consideration for its identity.Pod identity is important because it determines which pod is responsible for managing which data.
