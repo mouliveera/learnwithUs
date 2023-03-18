@@ -85,3 +85,58 @@ You can also use the kubectl describe command to get more detailed information a
 ```
 kubectl describe namespace development
 ```
+
+## 16 Mar 2023 && 17 Mar 2023
+## ReplicaSets
+- A ReplicaSet is a Kubernetes object that helps to ensure a desired number of replicas of a particular pod are running at all times.
+- Here's an example of how to create a ReplicaSet using Kubernetes YAML manifest:
+```
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+
+```
+
+- Ref: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
+## Deployments
+- A Deployment is a higher-level Kubernetes object that manages a set of replica pods for your application, ensuring that the desired number of replicas is running at all times. It provides an easy way to roll out updates to your application with minimal downtime, and to roll back to a previous version if necessary. 
+- Example yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+```
+
+`NOTE: The main difference between a ReplicaSet and a Deployment in Kubernetes is that a Deployment provides declarative updates to manage replicas of your application and is responsible for managing the overall lifecycle of your application, while a ReplicaSet is focused on maintaining a specific number of replicas for a given pod template.`
+
