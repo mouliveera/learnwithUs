@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     req: sai
-  name: demo-test-pod
+  name: demo-test-pod-120
 spec:
   containers:
   - image: nginx
