@@ -174,3 +174,55 @@ Here are some reasons why Deployments are commonly used for stateless applicatio
 `Easy scaling:` Deployments allow you to easily scale the number of replicas (pods) that are running your application. This is particularly useful for stateless applications because they can handle multiple replicas of the same pod without any data conflicts or consistency issues.
 
 `Pod identity:` Pods managed by a Deployment are anonymous and interchangeable. This means that if a pod fails, it can be replaced by a new pod with new name and IP without any consideration for its identity.Pod identity is important because it determines which pod is responsible for managing which data.
+
+## StatefulSets
+Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of its Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.
+
+If you want to use storage volumes to provide persistence for your workload, you can use a StatefulSet as part of the solution. Although individual Pods in a StatefulSet are susceptible to failure, the persistent Pod identifiers make it easier to match existing volumes to the new Pods that replace any that have failed.
+
+#### Example YAML:
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: demo-statefulset
+spec:
+  serviceName: "nginx"
+  replicas: 6
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: nginx:1.22
+        name: nginx-test
+```
+
+## DaemonSets
+DaemonSets are a Kubernetes resource that allow you to run a single pod on each node in a cluster. DaemonSets are useful for running system-level agents on each node, such as log collectors, monitoring agents, or storage plugins.
+
+When you create a DaemonSet, Kubernetes will automatically create a pod on each node in the cluster that matches the specified selector. If a new node is added to the cluster, Kubernetes will automatically create a new pod on that node. Similarly, if a node is removed from the cluster, Kubernetes will automatically delete the pod running on that node.
+
+#### Example YAML
+```
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: demo-deamons
+spec:
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: nginx:1.22
+        name: nginx-test
+```
