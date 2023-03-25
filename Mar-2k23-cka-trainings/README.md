@@ -226,3 +226,51 @@ spec:
       - image: nginx:1.22
         name: nginx-test
 ```
+
+## 22 Mar 2023
+## Services
+- In Kubernetes (k8s), a Service is an abstract way to expose an application running on a set of Pods as a network service.
+
+- A Service provides a stable IP address and DNS name to connect to the Pods, regardless of any changes that might occur in the Pod IP addresses.
+
+
+#### Here are a few examples of how Services can be used in Kubernetes:
+
+- Load Balancing: A Service can load-balance traffic between multiple Pods that are running the same application.
+- Service Discovery: A Service provides a single, stable DNS name and IP address that can be used to discover and connect to the Pods running the application.
+- Routing: A Service can route traffic to different Pods based on various criteria, such as load, version, or custom labels.
+- To list all the Services in a Kubernetes cluster
+```
+kubectl get services
+```
+This will list all the Services in the default namespace. To list Services in a specific namespace, you can use the -n flag followed by the namespace name:
+```
+kubectl get services -n <namespace>
+```
+- To describe a specific Service
+```
+kubectl describe service <service-name>
+```
+This will provide detailed information about the Service, including its IP address, ports, selectors, and endpoints.
+
+- Kubernetes supports several types of Services, each with its own purpose and functionality.
+#### NodePort Service: 
+- This type of Service exposes the Service on a static port on each Node in the cluster. It allows external traffic to access the Service by using the Node's IP address and the static port.
+- Example YAML:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: NodePort
+  selector:
+    app: my-app
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+
+```
+
+
