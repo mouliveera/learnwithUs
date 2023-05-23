@@ -1,9 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: demo-cluster-ip-svc
+  ports:
+    - targetPort: 80
+      port: 80
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-deployment
+  name: cluster-ip-deploy
   labels:
-    app: demo
+    app: demo-cluster-ip-svc
 spec:
   replicas: 1
   selector:
