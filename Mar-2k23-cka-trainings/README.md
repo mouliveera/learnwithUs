@@ -7,7 +7,30 @@
 ```
 Kubernetes is a complex system that comprises several components working together to manage containerized applications and services. The core components of Kubernetes include the API server, etcd, kube-scheduler, cloud-controller-manager, kubelet, kube-proxy, container runtime, and the controller manager.
 ```
+## Kubernetes components:
 
+#### Control Plane Components
+
+`kube-apiserver`: The API server is the front end for the Kubernetes control plane.
+
+`ETCD`: Consistent and highly-available key value store used as Kubernetes' backing store for all cluster data.
+
+`kube-scheduler`: It watches for newly created Pods with no assigned node, and selects a node for them to run on.
+
+`kube-controller-manager`: Ensures that a specified number of replicas of a pod, namespaces and services are running at all times.
+
+`cloud-controller-manager`: It allows Kubernetes to support multiple cloud providers without tightly coupling the core codebase to cloud-specific details.
+
+#### Node Components
+
+`kubelet`: An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.
+
+`kube-proxy`: kube-proxy is a network proxy that runs on each node in your cluster. kube-proxy maintains network rules on nodes. These network rules 
+allow network communication to your Pods from network sessions inside or outside of your cluster.
+
+`Container runtime`: The container runtime is the software[Docker] that is responsible for running containers.
+
+---
 **API server:** The API server is the central control plane component that provides a RESTful API for managing the Kubernetes cluster.
 
 **etcd:** Etcd is a distributed key-value store that stores the state of the Kubernetes cluster.
