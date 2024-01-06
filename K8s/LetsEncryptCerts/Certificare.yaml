@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minikube-cert
+  namespace: demo
+#  annotations:
+#    cert-manager.io/issue-temporary-certificate: "true"
+spec:
+  # Secret names are always required.
+  dnsNames:
+  - my-web-colors.com
+  - myminikubeworld.com
+  secretName: minikube-tls
+  issuerRef:
+    name: minikube-cluster-issuer
+    kind: ClusterIssuer

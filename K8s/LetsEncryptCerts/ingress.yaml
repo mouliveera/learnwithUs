@@ -1,0 +1,42 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: colors-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - my-web-colors.com
+    - myminikubeworld.com
+    secretName: minikube-tls
+  rules:
+  - host: my-web-colors.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: blue-service
+            port:
+              number: 8080
+      - path: /green
+        pathType: Prefix
+        backend:
+          service:
+            name: green-service
+            port:
+              number: 8080
+  - host: myminikubeworld.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-world-service
+            port:
+              number: 80

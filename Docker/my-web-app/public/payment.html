@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <style>
+        /* CSS for setting the background image */
+        body {
+            background-image: url('https://in.pinterest.com/pin/25825397855310547/');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* Additional CSS styles for your payment form */
+        .payment-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        /* Add more styles as needed for your form elements */
+    </style>
+</head>
+<body>
+    <div class="payment-form">
+        <h1>Welcome to the Payment Page</h1>
+        <p>Enter your payment details below:</p>
+        
+        <!-- Payment form -->
+        <form>
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number">
+            <br>
+            <label for="expiration-date">Expiration Date:</label>
+            <input type="text" id="expiration-date" name="expiration-date">
+            <br>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv">
+            <br>
+            <button type="submit">Pay</button>
+        </form>
+    </div>
+</body>
+</html>
+
