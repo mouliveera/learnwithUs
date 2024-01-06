@@ -1,38 +1,36 @@
-# Velero Installation Guide
+# Velero Setup with Minikube and Minio
 
-This guide provides step-by-step instructions for setting up Velero on your local Minikube cluster, using Minio as the storage backend.
+This guide provides step-by-step instructions for setting up Velero with Minikube and Minio, enabling you to store backups in a local Minio instance.
 
-## Step 1: Start Minikube
+## 1. Start Minikube in your Local Environment
 
-Ensure that Minikube is running on your local machine.
+Ensure Minikube is running by checking its status:
 
 ```bash
 minikube status
 ```
 
-## Step 2: Create Velero Namespace
+## 2. Create Velero Namespace
 
-Create the Velero namespace in your Minikube cluster.
+Create the Velero namespace using the following command:
 
 ```bash
 kubectl create ns velero
 ```
 
-## Step 3: Deploy Minio Resources to Velero Namespace
+## 3. Deploy Minio Resources to Velero Namespace
 
-Deploy the necessary Minio resources to the Velero namespace.
+Deploy the necessary Minio resources to the Velero namespace:
 
 ```bash
 kubectl apply -f . -n velero
 ```
 
-## Step 4: Install Velero
+## 4. Install Velero
 
-You can choose between using the `velero install` command or Helm charts for the installation. Below are both options:
+### 4.1 Velero Install
 
-### Option 1: Velero Install Command
-
-Use the following `velero install` command to install Velero with Minio as the storage backend.
+Use the `velero install` command to set up Velero:
 
 ```bash
 velero install \
@@ -44,46 +42,84 @@ velero install \
     --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.velero.svc:9000
 ```
 
-### Option 2: Helm Install
+### 4.2 Helm Install
 
-Add the Velero Helm chart repository to your local Helm.
+1. Add the Velero Helm chart repository:
 
 ```bash
 helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
 ```
 
-Install Velero using Helm charts with a custom values file.
+2. Create a `dev-minio-values.yaml` file with the following content:
+
+```yaml
+configuration:
+  backupStorageLocation:
+  - bucket: velero
+    name: velero
+    provider: aws
+    prefix: backups
+    default: true
+    config:
+      region: minio
+      s3ForcePathStyle: true
+      s3Url: http://minio.velero.svc:9000
+  volumeSnapshotLocation:
+  - config:
+      region: minio
+      s3ForcePathStyle: true
+      s3Url: http://minio.velero.svc:9000
+    provider: aws
+initContainers:
+- name: velero-plugin-for-aws
+  image: velero/velero-plugin-for-aws:v1.8.1
+  volumeMounts:
+  - mountPath: /target
+    name: plugins
+credentials:
+  useSecret: true
+  secretContents:
+    cloud: credentials-velero
+```
+
+3. Install Velero using Helm charts and the customized values file:
 
 ```bash
 helm install velero vmware-tanzu/velero -n velero -f dev-minio-values.yaml
 ```
 
-### Helm Install Result
+### 4.3 Helm Install Result
 
-After the Helm installation, you should see a deployment confirmation.
+After Helm installation, you should see a result similar to:
 
 ```bash
 helm install velero vmware-tanzu/velero -n velero -f dev-minio-values.yaml
 ```
 
-Check the status of the deployment.
+Check that Velero is up and running:
 
 ```bash
 kubectl get deployment/velero -n velero
 ```
 
-Ensure that the secret has been created.
+Ensure the secret has been created:
 
 ```bash
 kubectl get secret/velero -n velero
 ```
 
-## Step 5: Verify Installation
+Once Velero server is running, obtain the Velero client:
 
-After the installation is complete, check that Velero is up and running.
+1. Download the Velero client:
 
 ```bash
-kubectl get deployment/velero -n velero
+wget https://github.com/vmware-tanzu/velero/releases/download/v1.12.2/velero-v1.12.2-darwin-amd64.tar.gz
 ```
 
-Additionally, you can follow the instructions provided in the Helm result to download the Velero client and get more information from the [official Velero documentation](https://velero.io/docs).
+2. Extract the Velero client:
+
+```bash
+tar -xvf velero-v1.12.2-darwin-amd64.tar.gz -C velero-client
+```
+
+Refer to the official Velero documentation for more information: [Velero Documentation](https://velero.io/docs)
