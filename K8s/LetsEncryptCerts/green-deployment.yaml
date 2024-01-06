@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: green
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      containers:
+        - name: green-app
+          image: docker.io/kirbah/blue-green:green
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-service
+spec:
+  selector:
+    app: green
+  ports:
+    - port: 8080 # Default port for image
+

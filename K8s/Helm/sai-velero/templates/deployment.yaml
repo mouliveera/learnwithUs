@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment-{{ .Values.env }}
+  labels:
+    app: demo
+    env: {{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: nginx:1.22
+        name: nginx-test
