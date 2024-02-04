@@ -1,0 +1,25 @@
+version: '3'
+
+#services:
+#  nginx:
+#    build:
+#      context: ../demos/files
+#    #container_name: demo-nginx
+##    ports:
+##      - "3030:80"
+#    deploy:
+#      mode: replicated
+#      replicas: 3
+#  prometheus:
+#    image: bitnami/prometheus
+##    ports:
+##      - "8888:9090"
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+services:
+  frontend:
+    image: nginx
+    deploy:
+      mode: replicated
+      replicas: 6

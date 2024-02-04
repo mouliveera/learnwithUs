@@ -283,3 +283,5 @@ These additional commands cover various Docker operations, from managing images 
 - Minimize the number of layers in your images.
 - Use environment variables for configuration.
 
+
+| RoughNotes: https://docs.google.com/document/d/1BuWeR2izlSvBZabqpz4h8FZh6OgJrxunUPEnTC9SWt8/edit#heading=h.c7fi0hh7rwv2
