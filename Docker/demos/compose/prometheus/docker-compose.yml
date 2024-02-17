@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    deploy:
+      replicas: 2
+      placement:
+        constraints:
+          - node.role == worker
+    configs:
+      - source: prometheus-config
+        target: /etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    deploy:
+      replicas: 1  # Adjust as needed
+      placement:
+        constraints:
+          - node.role == worker
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
+configs:
+  prometheus-config:
+    file: ./prometheus.yml
+

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - nginx_data:/usr/share/nginx/html
+#    ports:
+#      - "8080:80"
+    deploy:
+      replicas: 2
+
+volumes:
+  nginx_data:

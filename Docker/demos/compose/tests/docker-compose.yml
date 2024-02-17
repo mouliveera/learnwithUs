@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    # container_name: prometheus1
+    ports:
+      - "9090"  # Remove the host port to let Docker assign dynamically
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - type: volume
+        source: prometheus
+        target: /var/lib/prometheus
+    deploy:
+      mode: replicated
+      replicas: 2
+
+volumes:
+  prometheus:
+
