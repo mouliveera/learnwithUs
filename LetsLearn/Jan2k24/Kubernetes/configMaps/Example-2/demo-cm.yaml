@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-cm-app-props
+data:
+  app.properties: |+
+    color.healthy=green
+    color.weak=orange
+    color.down=red
+    name=Mouli

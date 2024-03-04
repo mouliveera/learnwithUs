@@ -6,7 +6,7 @@ metadata:
 data:
   grafana.ini: |
     [security]
-    admin_user = admin
+    admin_user = ganesh
     admin_password = password123
 
 
