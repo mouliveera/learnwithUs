@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: demo-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: demo
@@ -18,5 +18,6 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: <node-name>
+        #kubernetes.io/hostname: <node-name>
+        app: ganesh
 
