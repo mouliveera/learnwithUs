@@ -1,11 +1,11 @@
-FROM ubuntu:18.04
-RUN apt-get update
+# Use the official Ubuntu base image
+FROM ubuntu:latest
 
-RUN apt-get install -y python
+# Set the working directory (optional)
+WORKDIR /app
 
-COPY . /tmp/
-RUN chmod +x /tmp/app.sh
+# Install the necessary packages to run a command
+RUN apt-get update && apt-get install -y bash
 
-#ENTRYPOINT /tmp/app.sh
-
-CMD ['/tmp/app.sh']
+# Command to print Hello World
+CMD echo "Hello World"
